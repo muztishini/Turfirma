@@ -7,7 +7,33 @@
     <title>Base</title>
 </head>
 <body background="{% static "images/main_bg.jpg" %}">
-    {% block content %}
-    {% endblock %}
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <img src="{% static "images/logo.png" %}" alt="Logo" >
+        <a href="#">О Нас</a>
+        <a href="#">Услуги</a>
+        <a href="#">Клинты</a>
+        <a href="#">Контакт</a>
+      </div>
+
+      <div id="main">
+        <button class="openbtn" onclick="openNav()">&#9776; </button>
+      </div>
+      {% block content %}
+
+      {% endblock %}
 </body>
+<script>
+/* Установить ширину боковой панели шириной 250 пикселей и следующий и левом поле содержание страницы шириной 250 пикселей и следующий */
+function openNav() {
+  document.getElementById("mySidebar").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+}
+
+/* Установите ширину боковой панели на 0, а левое поле содержимого страницы - на 0 */
+function closeNav() {
+  document.getElementById("mySidebar").style.width = "0";
+  document.getElementById("main").style.marginLeft = "0";
+}
+</script>
 </html>
