@@ -1,14 +1,26 @@
+body {
+    background-size: cover;
+    background-attachment: fixed;
+    overflow-x: hidden;
+}
+
 h1 {
     color: orange;
     position: relative;
-    top: -10%;
-    left: 50%; 
-
+    top: -60px;
+    left: 49%;
+    text-transform: uppercase;
+    unicode-bidi: isolate;
 }
 
 h2 {
-    color: green;
-    text-align: center;
+    position: relative;
+    left: 49%; 
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+    text-transform: uppercase;
 }
 
 /* Меню бокового бара */
@@ -51,6 +63,7 @@ h2 {
   
   /* Кнопка для открытия бокового бара */
   .openbtn {
+    position: fixed;
     font-size: 20px;
     cursor: pointer;
     background-color: #111;
@@ -83,7 +96,6 @@ h2 {
 }
 
 .ab_us {
-    /* text-align: center; */
     display: block;
     margin: 0 auto;
     margin-top: 10px;
@@ -96,4 +108,45 @@ h2 {
 
 span {
     color: orange;
+}
+.tours {
+  text-align: center;
+  font-size: 24px;
+  display: block;
+  margin: 0 auto;
+  margin-left: 130px;
+}
+.photo_tour {
+  display: block;
+  margin: 0 auto;
+  width: 30%;
+  height: 30%;
+}
+
+.links {
+  color: orangered;
+  outline: none;
+  text-decoration: none;
+  padding: 2px 1px 0;
+}
+
+.promo_name {
+  position: absolute;
+  top: -10px;
+  left: 30%;
+  line-height: 1.1;
+  text-shadow: 0 5px #000;
+  font-family: DaysLaterCyr;
+  font-weight: normal;
+  font-size: 150px;
+  color: orange;
+} 
+
+.promo_sub {
+  position: absolute;
+  left: 32%;
+  padding-top: 200px;
+  text-shadow: 0 5px #000;
+  font-size: clamp(18px, 1.66vw, 32px);
+  color: #fff;
 }

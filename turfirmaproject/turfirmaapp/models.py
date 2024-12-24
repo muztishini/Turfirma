@@ -22,6 +22,7 @@ class Tours(models.Model):
     start_date = models.DateField(verbose_name="Дата начала")
     end_date = models.DateField(verbose_name="Дата окончания")
     price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Цена")
+    photo_tour = models.ImageField(upload_to="photo_tour/", verbose_name="Фотография", null=True)
 
     def __str__(self):
         return self.tour_name
@@ -36,6 +37,7 @@ class Excursions(models.Model):
     description = models.TextField(null=True, blank=True, verbose_name="Описание")
     excursion_date = models.DateField(verbose_name="Дата экскурсии")
     price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Цена")
+    photo_excur = models.ImageField(upload_to="photo_excur/", verbose_name="Фотография", null=True)
 
     def __str__(self):
         return self.excursion_name
@@ -50,6 +52,7 @@ class Hotels(models.Model):
     address = models.CharField(max_length=255, null=True, blank=True, verbose_name="Адрес")
     rating = models.IntegerField(null=True, blank=True, verbose_name="Рейтинг")
     contact_number = models.CharField(max_length=20, null=True, blank=True, verbose_name="Контактный телефон")
+    photo_hotel = models.ImageField(upload_to="photo_hotel/", verbose_name="Фотография", null=True)
 
     def __str__(self):
         return self.hotel_name
