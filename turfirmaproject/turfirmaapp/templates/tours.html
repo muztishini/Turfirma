@@ -8,12 +8,8 @@
 {% if data %}
     {% for item in data %}     
     <div class="tours"> 
-        <p><a class="links"  href="#">{{ item.tour_name }}</a></p>
+        <p><a class="links"  href="{{ item.get_absolute_url }}">{{ item.tour_name }}</a></p>
         <p><img class="photo_tour" src="{{item.photo_tour.url}}"></p>
-        <!-- <p>{{ item.description }}</p>
-        <p>Начало тура: {{ item.start_date }}</p>
-        <p>Конец тура: {{ item.end_date }}</p>
-        <p>Цена: {{ item.price }}</p> -->
     </div>
     {% endfor %}
 {% else %}

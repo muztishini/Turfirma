@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 class Customers(models.Model):
@@ -23,6 +24,9 @@ class Tours(models.Model):
     end_date = models.DateField(verbose_name="Дата окончания")
     price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Цена")
     photo_tour = models.ImageField(upload_to="photo_tour/", verbose_name="Фотография", null=True)
+    
+    def get_absolute_url(self):
+        return reverse('tour', kwargs={'tour_id': self.pk})
 
     def __str__(self):
         return self.tour_name

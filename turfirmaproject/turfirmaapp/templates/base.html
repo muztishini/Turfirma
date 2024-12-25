@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
-    <title>Base</title>
+    <title>{% block title %}Default title{% endblock title %}</title>
 </head>
 <body background="{% static 'images/main_bg.jpg' %}">
     <div id="mySidebar" class="sidebar">

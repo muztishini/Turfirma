@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% if data %}
+
+{% block title %}{{ data.tour_name }}{% endblock title %}
+{% block content %}
+
+    <h2 class="title_tour">{{ data.tour_name }}</h2>
+    <p><img class="photo_tour" src="{{data.photo_tour.url}}"></p>  
+    <div class="show_tour">   
+    <p>{{ data.description }}</p>
+    <p>Начало тура: {{ data.start_date }}</p>
+    <p>Конец тура: {{ data.end_date }}</p>
+    <p>Цена: {{ data.price }}</p>
+    <button class="button_booking" type="button"><a class="links_btn" href="{% url 'booking' %}">Забронировать</a></button>
+</div>
+{% endblock %}
+{% else %}
+    <h2>Нет такого тура</h2>
+{% endif %}

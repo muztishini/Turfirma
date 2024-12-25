@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.http import HttpResponse
+from django.shortcuts import get_object_or_404, render
 from .models import Tours
 
 
@@ -13,3 +14,12 @@ def about(request):
 def tours(request):
     data = Tours.objects.all()
     return render(request, "tours.html", {"data" : data})
+
+
+def show_tour(request, tour_id):
+    data = get_object_or_404(Tours, id=tour_id)
+    return render(request, "show_tour.html", {"data" : data})
+  
+
+def booking(request):
+    return render(request, 'booking.html')
