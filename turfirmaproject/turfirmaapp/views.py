@@ -1,4 +1,3 @@
-from django.http import HttpResponse
 from django.shortcuts import render
 from .models import Tours, Excursions
 
@@ -26,6 +25,7 @@ def show_tour(request, tour_id):
 
 def booking(request):
     return render(request, 'booking.html')
+
 
 def excursions(request):
     data = Excursions.objects.all()
