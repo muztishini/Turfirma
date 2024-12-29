@@ -9,7 +9,13 @@ admin.site.register(list_models)
 
 @admin.register(Excursions)
 class ExcursonsAdmin(admin.ModelAdmin):
-    ...
+    list_display = ('excursion_name', 'description', 'excursion_date',  'price', 'photo_excur', 'get_image')
+    fields = ('excursion_name', 'description', 'excursion_date', 'price', 'photo_excur', 'get_image')
+    readonly_fields = ('get_image',)
+
+    @admin.display(description="Изображение")
+    def get_image(self, obj):
+        return mark_safe(f"<img src='{obj.photo_excur.url}' width=50>")
 
 
 @admin.register(Hotels)

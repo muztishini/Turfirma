@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% if data %}
+
+{% block title %}{{ data.excursion_name }}{% endblock title %}
+{% block content %}
+
+    <h2 class="title_tour">{{ data.excursion_name }}</h2>
+    <p><img class="photo_tour" src="{{data.photo_excur.url}}"></p>  
+    <div class="show_tour">   
+    <p>{{ data.description }}</p>
+    <p>Дата экскурсии: {{ data.excursion_date }}</p>
+    <p>Цена: {{ data.price }}</p>
+</div>
+{% endblock %}
+{% else %}
+    <h2>Нет такой экскурсии</h2>
+{% endif %}

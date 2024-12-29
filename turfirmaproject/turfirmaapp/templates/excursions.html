@@ -1,0 +1,19 @@
+<title>Наши экскурсии</title>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<h1 style="left: 46%;">Наши экскурсии</h1>
+{% if data %}
+    {% for item in data %}     
+    <div class="tours"> 
+        <p><a class="links"  href="{{ item.get_absolute_url }}">{{ item.excursion_name }}</a></p>
+        <p><img class="photo_tour" src="{{ item.photo_excur.url }}"></p>
+    </div>
+    {% endfor %}
+{% else %}
+    <h2>Экскурсии в разработке</h2>
+{% endif %}
+
+{% endblock %}

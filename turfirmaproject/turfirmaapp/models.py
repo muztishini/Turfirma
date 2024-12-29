@@ -42,6 +42,9 @@ class Excursions(models.Model):
     excursion_date = models.DateField(verbose_name="Дата экскурсии")
     price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Цена")
     photo_excur = models.ImageField(upload_to="photo_excur/", verbose_name="Фотография", null=True)
+    
+    def get_absolute_url(self):
+        return reverse('excursion', kwargs={'excursion_id': self.pk})
 
     def __str__(self):
         return self.excursion_name
@@ -82,8 +85,8 @@ class Transport(models.Model):
 
 
 class Bookings(models.Model):
-    customer_id = models.ForeignKey(Customers, on_delete=models.CASCADE, verbose_name="Id клиента")
-    tour_id = models.ForeignKey(Tours, on_delete=models.CASCADE, verbose_name="Id тура")
+    customer = models.ForeignKey(Customers, on_delete=models.CASCADE, verbose_name="Id клиента")
+    tour = models.ForeignKey(Tours, on_delete=models.CASCADE, verbose_name="Id тура")
     booking_date = models.DateField(verbose_name="Дата бронирования")
     status = models.CharField(max_length=20, verbose_name="Статус")
 
@@ -93,7 +96,7 @@ class Bookings(models.Model):
 
 
 class Payments(models.Model):
-    booking_id = models.ForeignKey(Bookings, on_delete=models.CASCADE, verbose_name="Id бронирования")
+    booking = models.ForeignKey(Bookings, on_delete=models.CASCADE, verbose_name="Id бронирования")
     payment_date = models.DateField(verbose_name="Дата оплаты")
     amount = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Сумма")
     payment_method = models.CharField(max_length=50, null=True, blank=True, verbose_name="Метод оплаты")
@@ -104,5 +107,5 @@ class Payments(models.Model):
 
 
 class HotelExcursion(models.Model):
-    hotel_id = models.ForeignKey(Hotels, on_delete=models.CASCADE)
-    excursion_id = models.ForeignKey(Excursions, on_delete=models.CASCADE)
+    hotel = models.ForeignKey(Hotels, on_delete=models.CASCADE)
+    excursion = models.ForeignKey(Excursions, on_delete=models.CASCADE)
