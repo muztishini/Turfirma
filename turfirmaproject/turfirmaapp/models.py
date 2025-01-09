@@ -15,27 +15,8 @@ class Customers(models.Model):
     class Meta:
         verbose_name = 'клиента'
         verbose_name_plural = "Клиенты"
-
-
-class Tours(models.Model):
-    tour_name = models.CharField(max_length=100, verbose_name="Название тура")
-    description = models.TextField(null=True, blank=True, verbose_name="Описание")
-    start_date = models.DateField(verbose_name="Дата начала")
-    end_date = models.DateField(verbose_name="Дата окончания")
-    price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Цена")
-    photo_tour = models.ImageField(upload_to="photo_tour/", verbose_name="Фотография", null=True)
-    
-    def get_absolute_url(self):
-        return reverse('tour', kwargs={'tour_id': self.pk})
-
-    def __str__(self):
-        return self.tour_name
-
-    class Meta:
-        verbose_name = 'тур'
-        verbose_name_plural = "Туры"
-
-
+   
+        
 class Excursions(models.Model):
     excursion_name = models.CharField(max_length=100, verbose_name="Название экскурсии")
     description = models.TextField(null=True, blank=True, verbose_name="Описание")
@@ -52,8 +33,8 @@ class Excursions(models.Model):
     class Meta:
         verbose_name = 'экскурсию'
         verbose_name_plural = "Экскурсии"
-
-
+        
+        
 class Hotels(models.Model):
     hotel_name = models.CharField(max_length=100, verbose_name="Название отеля")
     address = models.CharField(max_length=255, null=True, blank=True, verbose_name="Адрес")
@@ -67,8 +48,8 @@ class Hotels(models.Model):
     class Meta:
         verbose_name = 'отель'
         verbose_name_plural = "Отели"
-
-
+        
+        
 class Transport(models.Model):
     transport_type = models.CharField(max_length=50, verbose_name="Тип транспорта")
     company_name = models.CharField(max_length=100, null=True, blank=True, verbose_name="Название компании")
@@ -82,6 +63,28 @@ class Transport(models.Model):
     class Meta:
         verbose_name = 'транспорт'
         verbose_name_plural = "Транспорт"
+
+
+class Tours(models.Model):
+    tour_name = models.CharField(max_length=100, verbose_name="Название тура")
+    description = models.TextField(null=True, blank=True, verbose_name="Описание")
+    start_date = models.DateField(verbose_name="Дата начала")
+    end_date = models.DateField(verbose_name="Дата окончания")
+    price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Цена")
+    photo_tour = models.ImageField(upload_to="photo_tour/", verbose_name="Фотография", null=True)
+    excursions = models.ManyToManyField(Excursions, verbose_name="Название экскурсии")
+    transport = models.ForeignKey(Transport, on_delete=models.CASCADE, verbose_name="Тип транспорта")
+    hotel = models.ForeignKey(Hotels, on_delete=models.CASCADE, verbose_name="название отеля")
+    
+    def get_absolute_url(self):
+        return reverse('tour', kwargs={'tour_id': self.pk})
+
+    def __str__(self):
+        return self.tour_name
+
+    class Meta:
+        verbose_name = 'тур'
+        verbose_name_plural = "Туры"
 
 
 class Bookings(models.Model):
@@ -104,8 +107,3 @@ class Payments(models.Model):
     class Meta:
         verbose_name = 'оплату'
         verbose_name_plural = "Оплаты"
-
-
-class HotelExcursion(models.Model):
-    hotel = models.ForeignKey(Hotels, on_delete=models.CASCADE)
-    excursion = models.ForeignKey(Excursions, on_delete=models.CASCADE)

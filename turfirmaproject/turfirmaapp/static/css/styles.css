@@ -121,10 +121,11 @@ span {
   margin: 0 auto;
   width: 30%;
   height: 30%;
+  border: 4px solid orange;
 }
 
 .links {
-  color: orangered;
+  color: orange;
   outline: none;
   text-decoration: none;
   padding: 2px 1px 0;
