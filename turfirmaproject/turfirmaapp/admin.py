@@ -35,9 +35,13 @@ class TransportAdmin(admin.ModelAdmin):
 
 @admin.register(Tours)
 class ToursAdmin(admin.ModelAdmin):
-    list_display = ['tour_name', 'description', 'start_date', 'end_date', 'price', 'photo_tour', 'get_image', 'excursions_list', 'transport_links', 'hotel_links']
+    list_display = ['tour_name', 'get_description', 'start_date', 'end_date', 'price', 'photo_tour', 'get_image', 'excursions_list', 'transport_links', 'hotel_links']
     fields = ('tour_name', 'description', 'start_date', 'end_date', 'price', 'photo_tour', 'excursions', 'transport', 'hotel')
     readonly_fields = ('get_image',)
+        
+    @admin.display(description="Описание")
+    def get_description(self, obj):
+       return obj.description[:30]
 
     @admin.display(description="Изображение")
     def get_image(self, obj):
