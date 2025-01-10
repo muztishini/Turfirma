@@ -58,7 +58,7 @@ class Transport(models.Model):
     arrival_time = models.DateTimeField(null=True, blank=True, verbose_name="Время прибытия")
 
     def __str__(self):
-        return self.transport_type
+        return f"{self.id}"
 
     class Meta:
         verbose_name = 'транспорт'
@@ -72,8 +72,8 @@ class Tours(models.Model):
     end_date = models.DateField(verbose_name="Дата окончания")
     price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Цена")
     photo_tour = models.ImageField(upload_to="photo_tour/", verbose_name="Фотография", null=True)
-    excursions = models.ManyToManyField(Excursions, verbose_name="Название экскурсии")
-    transport = models.ForeignKey(Transport, on_delete=models.CASCADE, verbose_name="Тип транспорта")
+    excursions = models.ManyToManyField(Excursions, verbose_name="Название экскурсии", null=True, blank=True)
+    transport = models.ForeignKey(Transport, on_delete=models.CASCADE, verbose_name="ID транспорта")
     hotel = models.ForeignKey(Hotels, on_delete=models.CASCADE, verbose_name="название отеля")
     
     def get_absolute_url(self):

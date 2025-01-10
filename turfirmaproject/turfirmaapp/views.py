@@ -19,7 +19,6 @@ def show_tour(request, tour_id):
     try:
         data_tour = Tours.objects.get(id=tour_id)
         data_excursion = Tours.objects.get(id=tour_id).excursions.all()
-        print(data_tour, data_excursion)
         return render(request, "show_tour.html", {"data_tour": data_tour, "data_excursion": data_excursion})
     except:
         return render(request, '404.html')
