@@ -42,6 +42,9 @@ class Hotels(models.Model):
     contact_number = models.CharField(max_length=20, null=True, blank=True, verbose_name="Контактный телефон")
     photo_hotel = models.ImageField(upload_to="photo_hotel/", verbose_name="Фотография", null=True)
 
+    def get_absolute_url(self):
+        return reverse('hotel', kwargs={'hotel_id': self.pk})
+    
     def __str__(self):
         return self.hotel_name
 
@@ -58,7 +61,7 @@ class Transport(models.Model):
     arrival_time = models.DateTimeField(null=True, blank=True, verbose_name="Время прибытия")
 
     def __str__(self):
-        return f"{self.id}"
+        return str(self.id)
 
     class Meta:
         verbose_name = 'транспорт'

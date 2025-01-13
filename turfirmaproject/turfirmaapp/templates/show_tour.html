@@ -10,14 +10,20 @@
     <p><img class="photo_tour" src="{{data_tour.photo_tour.url}}"></p>
     <div class="show_tour">   
     <p>{{ data_tour.description }}</p>
-    <p>Экскурсии:
+    <p>Экскурсии: <br>
         {% if data_excursion %}
-     {% for item in data_excursion %}{{ item.excursion_name }} {% endfor %}{% else %}нет{% endif %}</p>
+     {% for item in data_excursion %} <a class="links"  href="{{ item.get_absolute_url }}">{{ item.excursion_name }} </a><br>{% endfor %}{% else %}нет{% endif %}</p>
 
     <p>Начало тура: {{ data_tour.start_date }}</p>
     <p>Конец тура: {{ data_tour.end_date }}</p>
-    <p>Отель: {{ data_tour.hotel }}</p>
-    <p>Трансфер: {{ data_tour.transport }}</p>
+    <p>Отель: <a class="links"  href="{{ data_hotel.get_absolute_url }}">{{ data_hotel.hotel_name }}</a></p>
+    <p>Трансфер:       
+            <p>Тип транспорта: {{data_transport.transport_type}}</p>
+            <p>Компания: {{data_transport.company_name}}</p>
+            <p>Номер рейса: {{data_transport.flight_number}}</p>
+            <p>Время отправления: {{data_transport.departure_time}}</p>
+            <p>Время прибытия: {{data_transport.arrival_time}}</p>
+    </p>   
     <p>Цена: {{ data_tour.price }}</p>
     <button class="button_booking" type="button"><a class="links_btn" href="{% url 'booking' %}">Забронировать</a></button>
 </div>
