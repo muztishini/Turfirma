@@ -4,8 +4,14 @@ from django.utils.safestring import mark_safe
 from .models import Customers, Tours, Transport, Excursions, Hotels, Bookings, Payments
 
 
-list_models = [Customers, Bookings, Payments]
+list_models = [Bookings, Payments]
 admin.site.register(list_models)
+
+
+@admin.register(Customers)
+class CustomersAdmin(admin.ModelAdmin):
+    list_display = [field.name for field in Customers._meta.fields]
+    list_display_links = ('id', 'first_name', 'last_name')
 
 
 @admin.register(Excursions)

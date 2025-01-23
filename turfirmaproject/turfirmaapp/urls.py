@@ -1,5 +1,6 @@
 from django.urls import path
-from .views import index, about, contact, tours, show_tour, booking, excursions, show_excursion, hotels, show_hotel
+from .views import index, about, contact, tours, show_tour, booking, excursions, show_excursion, hotels, show_hotel, register_customers, login, logout_user
+# from django.contrib.auth import views as auth_views
 
 
 urlpatterns = [
@@ -13,4 +14,7 @@ urlpatterns = [
     path('excursions/<int:excursion_id>/', show_excursion, name='excursion'),
     path('hotels', hotels, name='hotels'),
     path('hotels/<int:hotel_id>/', show_hotel, name='hotel'),
+    path('register', register_customers, name='register'),
+    path('login', login, name='login'),
+    path('logout', logout_user, name='logout'),
 ]

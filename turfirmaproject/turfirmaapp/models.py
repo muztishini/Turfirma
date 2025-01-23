@@ -75,7 +75,7 @@ class Tours(models.Model):
     end_date = models.DateField(verbose_name="Дата окончания")
     price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Цена")
     photo_tour = models.ImageField(upload_to="photo_tour/", verbose_name="Фотография", null=True)
-    excursions = models.ManyToManyField(Excursions, verbose_name="Название экскурсии", null=True, blank=True)
+    excursions = models.ManyToManyField(Excursions, verbose_name="Название экскурсии",  blank=True)
     transport = models.ForeignKey(Transport, on_delete=models.CASCADE, verbose_name="ID транспорта")
     hotel = models.ForeignKey(Hotels, on_delete=models.CASCADE, verbose_name="название отеля")
     
