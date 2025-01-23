@@ -4,22 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ca5f36d3-b7a3-45f9-8d90-dd989bd6f08f" name="Changes" comment="next commit">
-      <change afterPath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/templates/register.html" afterDir="false" />
+    <list default="true" id="ca5f36d3-b7a3-45f9-8d90-dd989bd6f08f" name="Changes" comment="add login&amp;registration">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/turfirmaproject/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/turfirmaproject/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/static/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/static/css/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/templates/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/templates/about.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/templates/contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/templates/contact.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/templates/excursions.html" beforeDir="false" afterPath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/templates/excursions.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/templates/hotels.html" beforeDir="false" afterPath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/templates/hotels.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/templates/show_excursion.html" beforeDir="false" afterPath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/templates/show_excursion.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/templates/show_hotel.html" beforeDir="false" afterPath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/templates/show_hotel.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/templates/show_tour.html" beforeDir="false" afterPath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/templates/show_tour.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/templates/tours.html" beforeDir="false" afterPath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/templates/tours.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/templates/register.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/views.py" afterDir="false" />
     </list>
@@ -111,12 +101,21 @@
       <option name="project" value="LOCAL" />
       <updated>1736419258539</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="add login&amp;registration">
+      <option name="closed" value="true" />
+      <created>1737620377698</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1737620377698</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit" />
     <MESSAGE value="next commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="next commit" />
+    <MESSAGE value="add login&amp;registration" />
+    <option name="LAST_COMMIT_MESSAGE" value="add login&amp;registration" />
   </component>
 </project>

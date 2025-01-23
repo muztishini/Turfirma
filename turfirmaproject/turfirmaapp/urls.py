@@ -1,6 +1,5 @@
 from django.urls import path
 from .views import index, about, contact, tours, show_tour, booking, excursions, show_excursion, hotels, show_hotel, register_customers, login, logout_user
-# from django.contrib.auth import views as auth_views
 
 
 urlpatterns = [

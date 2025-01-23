@@ -206,12 +206,10 @@ span {
   padding: 20px; /* Отступы внутри формы */
   border-radius: 5px; /* Скругленные углы */
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Тень */
-  /* background-color: whitesmoke; */
   width: 700px;
   position: relative;
   left: 700px; 
-  color: orange;
-  
+  color: orange;  
 }
 
 form {
@@ -237,6 +235,7 @@ button {
   border-radius: 4px;
   cursor: pointer;
   font-size: 16px;
+  margin: auto;
 }
 
 button:hover {

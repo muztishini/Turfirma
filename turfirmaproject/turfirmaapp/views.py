@@ -90,11 +90,11 @@ def register_customers(request):
         phone = request.POST.get("phone")
         registration_date = date.today()
         customer = Customers.objects.create(
-           first_name = first_name,
-            last_name = last_name,
-           email = email,
-           phone = phone,
-           registration_date = registration_date 
+            first_name=first_name,
+            last_name=last_name,
+            email=email,
+            phone=phone,
+            registration_date=registration_date
         )
         data = "Вы успешно зарегистрировались!"
         return render(request, "register.html", {"data": data, 'customer': my_data})
@@ -115,7 +115,7 @@ def login(request):
         except:
             message = "Нет такого клиента"
             return render(request, 'login.html', {"form": outperform, "message": message})
-    else:        
+    else:
         return render(request, 'login.html', {"form": outperform, "customer": my_data})
 
 

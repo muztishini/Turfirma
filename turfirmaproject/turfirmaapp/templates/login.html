@@ -8,11 +8,8 @@
   {% csrf_token %}
   <table>
     {{ form.as_p }}
-    <tr>
-      <td>&nbsp;</td>
-      <td><button type="submit">Вход</button></td>
-    </tr>                
   </table>
+  <button style="width: 200px;" type="submit">Вход</button>
 </form>
 </div>
 <h3 style="color: red;">{{ message }}</h3>
