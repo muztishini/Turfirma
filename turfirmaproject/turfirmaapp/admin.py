@@ -12,7 +12,8 @@ admin.site.register(list_models)
 class CustomersAdmin(admin.ModelAdmin):
     list_display = [field.name for field in Customers._meta.fields]
     list_display_links = ('id', 'first_name', 'last_name')
-
+    search_fields = ['phone', 'last_name']
+    
 
 @admin.register(Excursions)
 class ExcursionsAdmin(admin.ModelAdmin):
