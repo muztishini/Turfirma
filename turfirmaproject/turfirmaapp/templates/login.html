@@ -3,6 +3,7 @@
 {% block title %}Login{% endblock title %}
 {% block content %}
 <h1 style="left: 1000px;">Вход</h1>
+{% if form %}
 <div class="form-container">  
 <form method="post">
   {% csrf_token %}
@@ -12,5 +13,9 @@
   <button style="width: 200px;" type="submit">Вход</button>
 </form>
 </div>
-<h3 style="color: red;">{{ message }}</h3>
+<h3 class="regist_error" style="left: 970px;">{{ message }}</h3>
+{% else %}
+    <h5 style="left: 950px">Вы успешно вошли</h5>
+    <h5>Теперь вы можете бронировать <a class="links" href="{% url 'tours' %}">туры.</a></h5>
+{% endif %}
 {% endblock %}

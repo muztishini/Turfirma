@@ -14,8 +14,9 @@
         <button style="width: 300px;" type="submit">Регистрация</button>
         </form>
     </div>
-{% endif %}
-{% if data %}
-    <h3>{{data}}</h3>
+    <h4 class="regist_error">{{error}}</h4>
+{% else %}
+    <h5>Вы успешно зарегистрировались!</h5>
+    <h5>Теперь вы можете бронировать <a class="links" href="{% url 'tours' %}">туры.</a></h5>
 {% endif %}
 {% endblock %}

@@ -5,8 +5,8 @@ from django.urls import reverse
 class Customers(models.Model):
     first_name = models.CharField(max_length=50, verbose_name="Имя")
     last_name = models.CharField(max_length=50, verbose_name="Фамилия")
-    email = models.EmailField(verbose_name="Email")
-    phone = models.CharField(max_length=20, null=True, blank=True, verbose_name="Телефон")
+    email = models.EmailField(verbose_name="Email", unique=True)
+    phone = models.CharField(max_length=20, null=True, blank=True, unique=True, verbose_name="Телефон")
     registration_date = models.DateField(verbose_name="Дата регистрации")
 
     def __str__(self):

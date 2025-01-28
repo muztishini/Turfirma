@@ -32,6 +32,22 @@ h3 {
   unicode-bidi: isolate;
 }
 
+h4 {
+  color: black;
+  position: relative;
+  top: 60px;
+  left: 40%;
+  font-size: 26px;
+}
+
+h5 {
+  color: black;
+  position: relative;
+  top: 60px;
+  left: 45%;
+  font-size: 26px;
+}
+
 .header {
     position: fixed;
     top: 0;
@@ -240,4 +256,12 @@ button {
 
 button:hover {
   background-color: #4cae4c;
+}
+
+.regist_error {
+  color: red;
+  position: relative;
+  top: 20px;
+  left: 42%;
+  font-size: 18px;
 }

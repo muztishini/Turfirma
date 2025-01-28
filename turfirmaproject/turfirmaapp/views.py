@@ -82,6 +82,7 @@ def show_hotel(request, hotel_id):
 
 
 def register_customers(request):
+    outperform = CustomersForm()
     my_data = request.session.get('customer', None)
     if request.method == "POST":
         first_name = request.POST.get("first_name")
@@ -89,18 +90,22 @@ def register_customers(request):
         email = request.POST.get("email")
         phone = request.POST.get("phone")
         registration_date = date.today()
-        customer = Customers.objects.create(
-            first_name=first_name,
-            last_name=last_name,
-            email=email,
-            phone=phone,
-            registration_date=registration_date
-        )
-        data = "Вы успешно зарегистрировались!"
-        return render(request, "register.html", {"data": data, 'customer': my_data})
+        try:
+            customer = Customers.objects.create(
+                first_name=first_name,
+                last_name=last_name,
+                email=email,
+                phone=phone,
+                registration_date=registration_date
+            )
+            set_session_data(request, customer=customer.first_name)
+            return render(request, "register.html", {'customer': customer.first_name})
+        except Exception as e:
+            print(e)
+            error = "Пользователь с таким email или номером телефона уже зарегистрирован!"
+            return render(request, "register.html", {"form": outperform, 'error': error})
     else:
-        outperform = CustomersForm()
-        return render(request, "register.html", {"form": outperform})
+        return render(request, "register.html", {"form": outperform, "customer": my_data})
 
 
 def login(request):
@@ -111,7 +116,7 @@ def login(request):
         try:
             customer = Customers.objects.get(phone=phone)
             set_session_data(request, customer=customer.first_name)
-            return render(request, 'booking.html', {"customer": customer.first_name})
+            return render(request, 'login.html', {"customer": customer.first_name})
         except:
             message = "Нет такого клиента"
             return render(request, 'login.html', {"form": outperform, "message": message})

@@ -11,7 +11,7 @@
     <header class="header">
       <nav>
         {% if customer %}
-           {{customer}} | <a class="links" href="#" onClick="redirect()">Выйти</a>
+         <strong style="color: lime;">  {{customer}} </strong>| <a class="links" href="#" onClick="redirect()">Выйти</a>
           {% else %}
           <a class="links" href="{% url 'register' %}">Регистрация</a> | <a class="links" href="{% url 'login' %}">Войти</a>
         {% endif %}
