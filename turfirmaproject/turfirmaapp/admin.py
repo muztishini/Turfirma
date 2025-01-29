@@ -4,10 +4,6 @@ from django.utils.safestring import mark_safe
 from .models import Customers, Tours, Transport, Excursions, Hotels, Bookings, Payments
 
 
-list_models = [Bookings, Payments]
-admin.site.register(list_models)
-
-
 @admin.register(Customers)
 class CustomersAdmin(admin.ModelAdmin):
     list_display = [field.name for field in Customers._meta.fields]
@@ -38,6 +34,27 @@ class HotelsAdmin(admin.ModelAdmin):
 @admin.register(Transport)
 class TransportAdmin(admin.ModelAdmin):
     list_display = [field.name for field in Transport._meta.fields]
+    
+    
+@admin.register(Bookings)
+class BookingAdmin(admin.ModelAdmin):
+    list_display = ['id', 'customer_link', 'tour_link', 'booking_date', 'status']
+    list_display_links = ['id', 'status']
+    
+    @admin.display(description='Клиент')
+    def customer_link(self, obj):
+        link = f"<a href='/admin/turfirmaapp/customers/{obj.customer.id}/change/'>{obj.customer.last_name} {obj.customer.first_name}</a>"
+        return format_html(link)
+    
+    @admin.display(description='Тур')
+    def tour_link(self, obj):
+        link = f"<a href='/admin/turfirmaapp/tours/{obj.tour.id}/change/'>{obj.tour.tour_name}</a>"
+        return format_html(link)
+
+        
+@admin.register(Payments)
+class PaymentAdmin(admin.ModelAdmin):
+    list_display = [field.name for field in Payments._meta.fields]       
 
 
 @admin.register(Tours)

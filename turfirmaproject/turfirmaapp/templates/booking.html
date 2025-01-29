@@ -5,7 +5,7 @@
 <h1>Бронирование</h1>
 
 {% if customer %}
-    <h1>Hello, {{ customer }}</h1>
+    <h4>{{ customer }}, вы успешно забронировали тур "{{ tour_name }}"!</h4>
 {% else%}
 <h4>Чтобы забронировать тур, <a class="links" href="{% url 'login' %}">войдите</a> или <a class="links" href="{% url 'register' %}">зарегистрируйтесь!</a></h4>
 {% endif %}

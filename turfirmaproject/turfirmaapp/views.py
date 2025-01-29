@@ -1,11 +1,12 @@
 from django.shortcuts import redirect, render
 from .forms import CustomersForm, LoginForm
-from .models import Hotels, Tours, Excursions, Transport, Customers
+from .models import Hotels, Tours, Excursions, Transport, Customers, Bookings
 from datetime import date
 
 
-def set_session_data(request, customer):
-    request.session['customer'] = customer
+def set_session_data(request, customer_name, customer_id):
+    request.session['customer'] = customer_name
+    request.session['customer_id'] = customer_id
     return render(request, 'base.html')
 
 
@@ -37,6 +38,7 @@ def show_tour(request, tour_id):
         data_excursion = Tours.objects.get(id=tour_id).excursions.all()
         data_transport = Transport.objects.get(id=data_tour.transport_id)
         data_hotel = Hotels.objects.get(id=data_tour.hotel_id)
+        request.session['tour_id'] = tour_id
         return render(request, "show_tour.html",
                       {"data_tour": data_tour, "data_excursion": data_excursion, "data_transport": data_transport,
                        "data_hotel": data_hotel, 'customer': my_data})
@@ -47,6 +49,17 @@ def show_tour(request, tour_id):
 
 def booking(request):
     my_data = request.session.get('customer', None)
+    cust_id = request.session.get('customer_id')
+    tour_id=request.session.get('tour_id')
+    if cust_id is not None:
+        new_booking = Bookings.objects.create(
+            customer_id=cust_id,
+            tour_id=tour_id,
+            booking_date=date.today(),
+            status="забронировано"
+        )
+        tour_name = Tours.objects.get(id=tour_id).tour_name
+        return render(request, 'booking.html', {'customer': my_data, 'tour_name': tour_name})
     return render(request, 'booking.html', {'customer': my_data})
 
 
@@ -98,7 +111,8 @@ def register_customers(request):
                 phone=phone,
                 registration_date=registration_date
             )
-            set_session_data(request, customer=customer.first_name)
+            set_session_data(
+                request, customer_name=customer.first_name, customer_id=customer.id)
             return render(request, "register.html", {'customer': customer.first_name})
         except Exception as e:
             print(e)
@@ -115,7 +129,8 @@ def login(request):
         phone = request.POST.get("phone")
         try:
             customer = Customers.objects.get(phone=phone)
-            set_session_data(request, customer=customer.first_name)
+            set_session_data(
+                request, customer_name=customer.first_name, customer_id=customer.id)
             return render(request, 'login.html', {"customer": customer.first_name})
         except:
             message = "Нет такого клиента"
@@ -125,5 +140,5 @@ def login(request):
 
 
 def logout_user(request):
-    set_session_data(request, customer=None)
+    set_session_data(request, customer_name=None, customer_id=None)
     return redirect('home')

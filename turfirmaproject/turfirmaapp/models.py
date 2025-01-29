@@ -91,10 +91,20 @@ class Tours(models.Model):
 
 
 class Bookings(models.Model):
-    customer = models.ForeignKey(Customers, on_delete=models.CASCADE, verbose_name="Id клиента")
-    tour = models.ForeignKey(Tours, on_delete=models.CASCADE, verbose_name="Id тура")
+    choosing_status = [
+        ('забронировано', 'Забронировано'),
+        ('оплачено', 'Оплачено'),
+        ('подтверждено', 'Подтверждено'),
+        ('посетил', 'Посетил'),
+        ('отклонено', 'Отклонено'),
+    ]
+    customer = models.ForeignKey(Customers, on_delete=models.CASCADE, verbose_name="Имя клиента")
+    tour = models.ForeignKey(Tours, on_delete=models.CASCADE, verbose_name="Название тура")
     booking_date = models.DateField(verbose_name="Дата бронирования")
-    status = models.CharField(max_length=20, verbose_name="Статус")
+    status = models.CharField(max_length=20, verbose_name="Статус", choices=choosing_status)
+
+    def __str__(self):
+        return str(self.id)
 
     class Meta:
         verbose_name = 'бронирование'
