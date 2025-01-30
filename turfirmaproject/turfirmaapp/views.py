@@ -73,8 +73,10 @@ def show_excursion(request, excursion_id):
     try:
         my_data = request.session.get('customer', None)
         data = Excursions.objects.get(id=excursion_id)
-        return render(request, "show_excursion.html", {"data": data, 'customer': my_data})
-    except:
+        data_tours = data.tours_set.all()
+        return render(request, "show_excursion.html", {"data": data, "data_tours": data_tours, 'customer': my_data})
+    except Exception as e:
+        print(e)
         return render(request, '404.html')
 
 
@@ -133,7 +135,7 @@ def login(request):
                 request, customer_name=customer.first_name, customer_id=customer.id)
             return render(request, 'login.html', {"customer": customer.first_name})
         except:
-            message = "Нет такого клиента"
+            message = "Извините, пользователь с данным номером телефона не найден. "
             return render(request, 'login.html', {"form": outperform, "message": message})
     else:
         return render(request, 'login.html', {"form": outperform, "customer": my_data})

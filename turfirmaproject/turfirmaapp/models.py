@@ -112,10 +112,20 @@ class Bookings(models.Model):
 
 
 class Payments(models.Model):
+    choosing_payment = [
+        ('карта', 'Карта'),
+        ('наличные', 'Наличные'),
+        ('перевод', 'Перевод'),
+        ('qr-код', 'QR-код')
+    ]
+    
     booking = models.ForeignKey(Bookings, on_delete=models.CASCADE, verbose_name="Id бронирования")
     payment_date = models.DateField(verbose_name="Дата оплаты")
     amount = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Сумма")
-    payment_method = models.CharField(max_length=50, null=True, blank=True, verbose_name="Метод оплаты")
+    payment_method = models.CharField(max_length=50, null=True, blank=True, verbose_name="Метод оплаты", choices=choosing_payment)
+    
+    def __str__(self):
+        return str(self.id)
 
     class Meta:
         verbose_name = 'оплату'

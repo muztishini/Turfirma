@@ -11,6 +11,9 @@
     <p>{{ data.description }}</p>
     <p>Дата экскурсии: {{ data.excursion_date }}</p>
     <p>Цена: {{ data.price }}</p>
+    <p>Входит в туры: <br>
+        {% if data_tours %}
+     {% for item in data_tours %} <a class="links"  href="{{ item.get_absolute_url }}">{{ item.tour_name }} </a><br>{% endfor %}{% else %}нет{% endif %}</p>
 </div>
 {% endblock %}
 {% else %}

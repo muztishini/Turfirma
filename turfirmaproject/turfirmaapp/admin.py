@@ -54,7 +54,13 @@ class BookingAdmin(admin.ModelAdmin):
         
 @admin.register(Payments)
 class PaymentAdmin(admin.ModelAdmin):
-    list_display = [field.name for field in Payments._meta.fields]       
+    list_display = ['id', 'booking_link', 'payment_date', 'amount', 'payment_method'] 
+    list_display_links = ['id']   
+    
+    @admin.display(description='Id бронирования')
+    def booking_link(self, obj):
+        link = f"<a href='/admin/turfirmaapp/bookings/{obj.booking.id}/change/'>{obj.booking.id}</a>"
+        return format_html(link)   
 
 
 @admin.register(Tours)

@@ -13,7 +13,9 @@
   <button style="width: 200px;" type="submit">Вход</button>
 </form>
 </div>
-<h3 class="regist_error" style="left: 970px;">{{ message }}</h3>
+  {% if message %}
+    <h3 class="regist_error" style="left: 550px;">{{ message }}Пожалуйста, <a class="links" href="{% url 'register' %}">зарегистрируйтесь</a>.</h3>
+  {% endif %}
 {% else %}
     <h5 style="left: 950px">Вы успешно вошли</h5>
     <h5>Теперь вы можете бронировать <a class="links" href="{% url 'tours' %}">туры.</a></h5>
