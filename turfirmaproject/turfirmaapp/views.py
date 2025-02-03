@@ -10,9 +10,9 @@ def set_session_data(request, customer_name, customer_id):
     return render(request, 'base.html')
 
 
-def index(request):
+def home(request):
     my_data = request.session.get('customer', None)
-    return render(request, 'index.html', {'customer': my_data})
+    return render(request, 'home.html', {'customer': my_data})
 
 
 def about(request):
