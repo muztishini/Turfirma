@@ -52,6 +52,7 @@ h5 {
     position: fixed;
     top: 0;
     right: 10px;
+    font-size: 20px;
 }
 
 /* Меню бокового бара */
@@ -95,7 +96,7 @@ h5 {
   /* Кнопка для открытия бокового бара */
   .openbtn {
     position: fixed;
-    font-size: 20px;
+    font-size: 40px;
     cursor: pointer;
     background-color: #111;
     color: white;
@@ -140,6 +141,7 @@ h5 {
 span {
     color: orange;
 }
+
 .tours {
   text-align: center;
   font-size: 24px;
@@ -147,9 +149,11 @@ span {
   margin: 0 auto;
   margin-left: 150px;
 }
+
 .photo_tour {
   display: block;
   margin: 0 auto;
+  margin-top: -30px;
   width: 30%;
   height: 30%;
   border: 4px solid orange;
@@ -198,6 +202,7 @@ span {
   position: static;
   text-align: center;
   color: orange;
+  padding-bottom: 20px;
 }
 
 .button_booking {

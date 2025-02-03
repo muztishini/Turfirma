@@ -8,7 +8,7 @@
     {% for item in data %}     
     <div class="tours"> 
         <p><a class="links"  href="{{ item.get_absolute_url }}">{{ item.tour_name }}</a></p>
-        <p><img class="photo_tour" src="{{item.photo_tour.url}}"></p>
+        <p><a class="links"  href="{{ item.get_absolute_url }}"><img class="photo_tour" src="{{item.photo_tour.url}}"></a></p>
     </div>
     {% endfor %}
 {% else %}
