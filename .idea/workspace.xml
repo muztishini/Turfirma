@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ca5f36d3-b7a3-45f9-8d90-dd989bd6f08f" name="Changes" comment="next commit">
-      <change beforePath="$PROJECT_DIR$/turfirmaproject/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/turfirmaproject/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/views.py" afterDir="false" />
+    <list default="true" id="ca5f36d3-b7a3-45f9-8d90-dd989bd6f08f" name="Changes" comment="small changes">
+      <change beforePath="$PROJECT_DIR$/.idea/Turfirma.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Turfirma.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,16 +36,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Python/tg-bots/bot_Korotkov&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Python/Django/Turfirma",
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Python\Django\Turfirma\turfirmaproject\turfirmaapp\static" />
@@ -56,7 +55,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-d68999036c7f-d3b881c8e49f-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-233.14475.56" />
+        <option value="bundled-python-sdk-a5bc9544c897-aa17d162503b-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-243.23654.177" />
       </set>
     </attachedChunks>
   </component>
@@ -149,13 +148,22 @@
       <option name="project" value="LOCAL" />
       <updated>1738566342006</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="small changes">
+      <option name="closed" value="true" />
+      <created>1738566995822</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1738566995822</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit" />
     <MESSAGE value="add login&amp;registration" />
     <MESSAGE value="next commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="next commit" />
+    <MESSAGE value="small changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="small changes" />
   </component>
 </project>

@@ -135,7 +135,7 @@ def login(request):
                 request, customer_name=customer.first_name, customer_id=customer.id)
             return render(request, 'login.html', {"customer": customer.first_name})
         except:
-            message = "Извините, пользователь с данным номером телефона не найден. "
+            message = "Извините, пользователь с данным номером телефона не найден."
             return render(request, 'login.html', {"form": outperform, "message": message})
     else:
         return render(request, 'login.html', {"form": outperform, "customer": my_data})
