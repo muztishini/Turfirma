@@ -1,2 +1,2 @@
 Сайт турфирмы.
-Выполнен на django fuulstuck.
+Выполнен на django fullstack.
