@@ -1,5 +1,6 @@
 from django.urls import path
-from .views import home, about, contact, tours, show_tour, booking, excursions, show_excursion, hotels, show_hotel, register_customers, login, logout_user
+from .views import (home, about, contact, tours, show_tour, booking, excursions, show_excursion, hotels, show_hotel,
+                    register_customers, login, logout_user)
 
 
 urlpatterns = [

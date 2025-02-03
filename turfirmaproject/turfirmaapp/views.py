@@ -50,9 +50,9 @@ def show_tour(request, tour_id):
 def booking(request):
     my_data = request.session.get('customer', None)
     cust_id = request.session.get('customer_id')
-    tour_id=request.session.get('tour_id')
+    tour_id = request.session.get('tour_id')
     if cust_id is not None:
-        new_booking = Bookings.objects.create(
+        Bookings.objects.create(
             customer_id=cust_id,
             tour_id=tour_id,
             booking_date=date.today(),
