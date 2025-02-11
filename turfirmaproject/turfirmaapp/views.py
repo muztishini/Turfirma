@@ -134,7 +134,8 @@ def login(request):
             set_session_data(
                 request, customer_name=customer.first_name, customer_id=customer.id)
             return render(request, 'login.html', {"customer": customer.first_name})
-        except:
+        except Exception as e:
+            print(e)
             message = "Извините, пользователь с данным номером телефона не найден."
             return render(request, 'login.html', {"form": outperform, "message": message})
     else:
