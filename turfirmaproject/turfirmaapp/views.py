@@ -51,15 +51,19 @@ def booking(request):
     my_data = request.session.get('customer', None)
     cust_id = request.session.get('customer_id')
     tour_id = request.session.get('tour_id')
-    if cust_id is not None:
-        Bookings.objects.create(
-            customer_id=cust_id,
-            tour_id=tour_id,
-            booking_date=date.today(),
-            status="забронировано"
-        )
-        tour_name = Tours.objects.get(id=tour_id).tour_name
-        return render(request, 'booking.html', {'customer': my_data, 'tour_name': tour_name})
+    tour_name = Tours.objects.get(id=tour_id).tour_name
+    booking_in_base = Bookings.objects.filter(customer=cust_id, tour=tour_id)
+    if not booking_in_base:
+        if cust_id is not None:
+            Bookings.objects.create(
+                customer_id=cust_id,
+                tour_id=tour_id,
+                booking_date=date.today(),
+                status="забронировано"
+            )
+            return render(request, 'booking.html', {'customer': my_data, 'tour_name': tour_name})
+    else:
+        return render(request, 'booking.html', {'customer': my_data, 'tour_name': tour_name, 'flag': 1})
     return render(request, 'booking.html', {'customer': my_data})
 
 

@@ -40,6 +40,7 @@ class TransportAdmin(admin.ModelAdmin):
 class BookingAdmin(admin.ModelAdmin):
     list_display = ['id', 'customer_link', 'tour_link', 'booking_date', 'status']
     list_display_links = ['id', 'status']
+    # search_fields = ['customer']
 
     @admin.display(description='Клиент')
     def customer_link(self, obj):
