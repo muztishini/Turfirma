@@ -9,22 +9,29 @@ class CustomersAdmin(admin.ModelAdmin):
     list_display = [field.name for field in Customers._meta.fields]
     list_display_links = ('id', 'first_name', 'last_name')
     search_fields = ['phone', 'last_name']
+    list_per_page = 10
 
 
 @admin.register(Excursions)
 class ExcursionsAdmin(admin.ModelAdmin):
-    list_display = ('excursion_name', 'description', 'excursion_date', 'price', 'photo_excur', 'get_image')
+    list_display = ('excursion_name', 'get_description', 'excursion_date', 'price', 'photo_excur', 'get_image')
     fields = ('excursion_name', 'description', 'excursion_date', 'price', 'photo_excur', 'get_image')
     readonly_fields = ('get_image',)
+    list_per_page = 10
 
     @admin.display(description="Изображение")
     def get_image(self, obj):
         return mark_safe(f"<img src='{obj.photo_excur.url}' width=50>")
 
+    @admin.display(description="Описание")
+    def get_description(self, obj):
+        return obj.description[:50]
+
 
 @admin.register(Hotels)
 class HotelsAdmin(admin.ModelAdmin):
     list_display = ['hotel_name', 'address', 'rating', 'contact_number', 'photo_hotel', 'get_image']
+    list_per_page = 10
 
     @admin.display(description="Изображение")
     def get_image(self, obj):
@@ -34,29 +41,35 @@ class HotelsAdmin(admin.ModelAdmin):
 @admin.register(Transport)
 class TransportAdmin(admin.ModelAdmin):
     list_display = [field.name for field in Transport._meta.fields]
+    list_per_page = 10
 
 
 @admin.register(Bookings)
 class BookingAdmin(admin.ModelAdmin):
     list_display = ['id', 'customer_link', 'tour_link', 'booking_date', 'status']
-    list_display_links = ['id', 'status']
-    # search_fields = ['customer']
+    list_editable = ('status',)
+    list_per_page = 10
 
     @admin.display(description='Клиент')
     def customer_link(self, obj):
         link = f"<a href='/admin/turfirmaapp/customers/{obj.customer.id}/change/'>{obj.customer.last_name} {obj.customer.first_name}</a>"
         return format_html(link)
 
+    customer_link.admin_order_field = 'customer__last_name'
+
     @admin.display(description='Тур')
     def tour_link(self, obj):
         link = f"<a href='/admin/turfirmaapp/tours/{obj.tour.id}/change/'>{obj.tour.tour_name}</a>"
         return format_html(link)
+
+    tour_link.admin_order_field = 'tour__tour_name'
 
 
 @admin.register(Payments)
 class PaymentAdmin(admin.ModelAdmin):
     list_display = ['id', 'booking_link', 'payment_date', 'amount', 'payment_method']
     list_display_links = ['id']
+    list_per_page = 10
 
     @admin.display(description='Id бронирования')
     def booking_link(self, obj):
@@ -71,10 +84,11 @@ class ToursAdmin(admin.ModelAdmin):
     fields = (
         'tour_name', 'description', 'start_date', 'end_date', 'price', 'photo_tour', 'excursions', 'transport', 'hotel')
     readonly_fields = ('get_image',)
+    list_per_page = 10
 
     @admin.display(description="Описание")
     def get_description(self, obj):
-        return obj.description[:30]
+        return obj.description[:50]
 
     @admin.display(description="Изображение")
     def get_image(self, obj):
