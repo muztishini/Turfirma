@@ -4,6 +4,7 @@ from django.utils.safestring import mark_safe
 from .models import Customers, Tours, Transport, Excursions, Hotels, Bookings, Payments
 
 
+# класс кастомизации админки клиентов
 @admin.register(Customers)
 class CustomersAdmin(admin.ModelAdmin):
     list_display = [field.name for field in Customers._meta.fields]
@@ -12,6 +13,7 @@ class CustomersAdmin(admin.ModelAdmin):
     list_per_page = 10
 
 
+# класс кастомизации админки экскурсий
 @admin.register(Excursions)
 class ExcursionsAdmin(admin.ModelAdmin):
     list_display = ('excursion_name', 'get_description', 'excursion_date', 'price', 'photo_excur', 'get_image')
@@ -28,6 +30,7 @@ class ExcursionsAdmin(admin.ModelAdmin):
         return obj.description[:50]
 
 
+# класс кастомизации админки отелей
 @admin.register(Hotels)
 class HotelsAdmin(admin.ModelAdmin):
     list_display = ['hotel_name', 'address', 'rating', 'contact_number', 'photo_hotel', 'get_image']
@@ -38,12 +41,14 @@ class HotelsAdmin(admin.ModelAdmin):
         return mark_safe(f"<img src='{obj.photo_hotel.url}' width=50>")
 
 
+# класс кастомизации админки транспорта
 @admin.register(Transport)
 class TransportAdmin(admin.ModelAdmin):
     list_display = [field.name for field in Transport._meta.fields]
     list_per_page = 10
 
 
+# класс кастомизации админки бронирования
 @admin.register(Bookings)
 class BookingAdmin(admin.ModelAdmin):
     list_display = ['id', 'customer_link', 'tour_link', 'booking_date', 'status']
@@ -65,6 +70,7 @@ class BookingAdmin(admin.ModelAdmin):
     tour_link.admin_order_field = 'tour__tour_name'
 
 
+# класс кастомизации админки платежей
 @admin.register(Payments)
 class PaymentAdmin(admin.ModelAdmin):
     list_display = ['id', 'booking_link', 'payment_date', 'amount', 'payment_method']
@@ -77,6 +83,7 @@ class PaymentAdmin(admin.ModelAdmin):
         return format_html(link)
 
 
+# класс кастомизации админки туров
 @admin.register(Tours)
 class ToursAdmin(admin.ModelAdmin):
     list_display = ['tour_name', 'get_description', 'start_date', 'end_date', 'price', 'photo_tour', 'get_image',

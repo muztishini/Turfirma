@@ -4,33 +4,39 @@ from .models import Hotels, Tours, Excursions, Transport, Customers, Bookings
 from datetime import date
 
 
+# функция обработки сессии
 def set_session_data(request, customer_name, customer_id):
     request.session['customer'] = customer_name
     request.session['customer_id'] = customer_id
     return render(request, 'base.html')
 
 
+# функция представления домашней страницы
 def home(request):
     my_data = request.session.get('customer', None)
     return render(request, 'home.html', {'customer': my_data})
 
 
+# функция представления страницы "о нас"
 def about(request):
     my_data = request.session.get('customer', None)
     return render(request, 'about.html', {'customer': my_data})
 
 
+# функция представления страницы контактов
 def contact(request):
     my_data = request.session.get('customer', None)
     return render(request, 'contact.html', {'customer': my_data})
 
 
+# функция представления страницы туров
 def tours(request):
     data = Tours.objects.all()
     my_data = request.session.get('customer', None)
     return render(request, "tours.html", {"data": data, 'customer': my_data})
 
 
+# функция представления страницы выбранного тура
 def show_tour(request, tour_id):
     try:
         my_data = request.session.get('customer', None)
@@ -47,6 +53,7 @@ def show_tour(request, tour_id):
         return render(request, '404.html')
 
 
+# функция представления страницы бронирования
 def booking(request):
     my_data = request.session.get('customer', None)
     cust_id = request.session.get('customer_id')
@@ -67,12 +74,14 @@ def booking(request):
     return render(request, 'booking.html', {'customer': my_data})
 
 
+# функция представления страницы экскурсий
 def excursions(request):
     data = Excursions.objects.all()
     my_data = request.session.get('customer', None)
     return render(request, "excursions.html", {"data": data, 'customer': my_data})
 
 
+# функция представления страницы выбранной экскурсии
 def show_excursion(request, excursion_id):
     try:
         my_data = request.session.get('customer', None)
@@ -84,12 +93,14 @@ def show_excursion(request, excursion_id):
         return render(request, '404.html')
 
 
+# функция представления страницы отелей
 def hotels(request):
     my_data = request.session.get('customer', None)
     data = Hotels.objects.all()
     return render(request, "hotels.html", {"data": data, 'customer': my_data})
 
 
+# функция представления страницы выбранного отеля
 def show_hotel(request, hotel_id):
     try:
         my_data = request.session.get('customer', None)
@@ -100,6 +111,7 @@ def show_hotel(request, hotel_id):
         return render(request, '404.html')
 
 
+# функция представления страницы регистрации клиента
 def register_customers(request):
     outperform = CustomersForm()
     my_data = request.session.get('customer', None)
@@ -128,6 +140,7 @@ def register_customers(request):
         return render(request, "register.html", {"form": outperform, "customer": my_data})
 
 
+# функция представления страницы логина клиента
 def login(request):
     my_data = request.session.get('customer', None)
     outperform = LoginForm()
@@ -146,6 +159,7 @@ def login(request):
         return render(request, 'login.html', {"form": outperform, "customer": my_data})
 
 
+# функция представления страницы выхода клиента
 def logout_user(request):
     set_session_data(request, customer_name=None, customer_id=None)
     return redirect('home')

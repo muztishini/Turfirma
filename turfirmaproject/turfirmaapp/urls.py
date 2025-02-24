@@ -3,6 +3,7 @@ from .views import (home, about, contact, tours, show_tour, booking, excursions,
                     register_customers, login, logout_user)
 
 
+# список путей приложения
 urlpatterns = [
     path('', home, name='home'),
     path('about', about, name='about'),
