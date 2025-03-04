@@ -26,16 +26,31 @@
         <a href="{% url 'tours' %}">Наши туры</a>
         <a href="{% url 'excursions' %}">Наши экскурсии</a>
         <a href="{% url 'hotels' %}">Наши отели</a>
+        <a href="{% url 'reviews' %}">Отзывы</a>
         <a href="{% url 'contact' %}">Контакты</a>
       </div>
 
       <div id="main">
         <button class="openbtn" onclick="openNav()">&#9776; </button>
       </div>
+
+
+      <footer>
+        © 2025 Ваша компания. Все права защищены.
+        <nav>
+            <a class="links" href="{% url 'contact' %}">Контакты</a> | <a class="links" href="{% url 'reviews' %}">Отзывы</a>
+        </nav>
+      </footer>
+
       {% block content %}
 
       {% endblock %}
+
+
 </body>
+
+
+
 <script>
 /* Установить ширину боковой панели шириной 250 пикселей и следующий и левом поле содержание страницы шириной 250 пикселей и следующий */
 function openNav() {
@@ -57,4 +72,7 @@ function redirect(){
   }
 }
 </script>
+
+
+
 </html>

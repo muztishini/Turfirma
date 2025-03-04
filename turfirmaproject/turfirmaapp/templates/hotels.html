@@ -2,6 +2,15 @@
 {% block title %}Наши отели{% endblock title %}
 {% block content %}
 
+{% load static %}
+<style>
+    body {
+        background-image: url("{% static 'images/bg3.jpg' %}");
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+</style>
+
 <h1>Наши отели</h1>
 {% if data %}
     {% for item in data %}     

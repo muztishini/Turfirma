@@ -29,6 +29,12 @@ def contact(request):
     return render(request, 'contact.html', {'customer': my_data})
 
 
+# функция представления страницы отзывов
+def reviews(request):
+    my_data = request.session.get('customer', None)
+    return render(request, 'reviews.html', {'customer': my_data})
+
+
 # функция представления страницы туров
 def tours(request):
     data = Tours.objects.all()

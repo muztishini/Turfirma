@@ -1,7 +1,16 @@
 {% extends 'base.html' %}
+
 {% block title %}Наши экскурсии{% endblock title %}
 
 {% block content %}
+{% load static %}
+<style>
+    body {
+        background-image: url("{% static 'images/bg2.jpg' %}");
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+</style>
 
 <h1 style="left: 46%;">Наши экскурсии</h1>
 {% if data %}

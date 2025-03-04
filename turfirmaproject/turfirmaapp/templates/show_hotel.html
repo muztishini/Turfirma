@@ -4,6 +4,15 @@
 
 {% block content %}
 
+{% load static %}
+<style>
+    body {
+        background-image: url("{% static 'images/bg3.jpg' %}");
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+</style>
+
     <h2 class="title_tour">{{ data.hotel_name }}</h2>
     <p><img class="photo_tour" src="{{data.photo_hotel.url}}"></p>  
     <div class="show_tour">   

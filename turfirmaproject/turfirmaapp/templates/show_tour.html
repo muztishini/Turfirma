@@ -5,6 +5,16 @@
 {% block title %}{{ data_tour.tour_name }}{% endblock title %}
 {% block content %}
 
+{% load static %}
+<style>
+    body {
+        background-image: url("{% static 'images/bg1.jpg' %}");
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+</style>
+
+
     <h2 class="title_tour">{{ data_tour.tour_name }}</h2>
     <p><img class="photo_tour" src="{{data_tour.photo_tour.url}}"></p>
     <div class="show_tour">   

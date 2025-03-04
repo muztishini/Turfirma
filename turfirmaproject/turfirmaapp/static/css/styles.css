@@ -56,6 +56,18 @@ h5 {
     font-size: 20px;
 }
 
+footer {
+  position: fixed;
+  background: #333;
+  color: #fff;
+  text-align: center;
+  font-size: 20px;
+  left: 0;
+  right: 0;
+  bottom: 0px;
+  z-index: 10;
+}   
+
 /* Меню бокового бара */
 .sidebar {
     height: 100%; /* 100% Полный рост */

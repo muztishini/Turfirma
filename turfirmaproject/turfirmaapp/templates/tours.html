@@ -3,6 +3,15 @@
 
 {% block content %}
 
+{% load static %}
+<style>
+    body {
+        background-image: url("{% static 'images/bg1.jpg' %}");
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+</style>
+
 <h1>Наши туры</h1>
 {% if data %}
     {% for item in data %}     

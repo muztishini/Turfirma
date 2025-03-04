@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import (home, about, contact, tours, show_tour, booking, excursions, show_excursion, hotels, show_hotel,
+from .views import (home, about, contact, reviews, tours, show_tour, booking, excursions, show_excursion, hotels, show_hotel,
                     register_customers, login, logout_user)
 
 
@@ -8,6 +8,7 @@ urlpatterns = [
     path('', home, name='home'),
     path('about', about, name='about'),
     path('contact', contact, name='contact'),
+    path('reviews', reviews, name='reviews'),
     path('tours', tours, name='tours'),
     path('tours/<int:tour_id>/', show_tour, name='tour'),
     path('booking', booking, name='booking'),
