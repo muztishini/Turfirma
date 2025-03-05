@@ -1,6 +1,6 @@
 from django.shortcuts import redirect, render
-from .forms import CustomersForm, LoginForm
-from .models import Hotels, Tours, Excursions, Transport, Customers, Bookings
+from .forms import CustomersForm, LoginForm, ReviewForm
+from .models import Hotels, Tours, Excursions, Transport, Customers, Bookings, Reviews
 from datetime import date
 
 
@@ -32,7 +32,23 @@ def contact(request):
 # функция представления страницы отзывов
 def reviews(request):
     my_data = request.session.get('customer', None)
-    return render(request, 'reviews.html', {'customer': my_data})
+    outperform = ReviewForm()
+    data = Reviews.objects.all().order_by('-id')
+    if request.method == "POST":
+        user = request.POST.get("user")
+        review = request.POST.get("review")
+        date_review = date.today()
+        if user == "":
+            user = "Anonymous"
+        Reviews.objects.create(
+            user=user,
+            review=review,
+            date_review=date_review
+        )
+        data = Reviews.objects.all().order_by('-id')
+        return render(request, 'reviews.html', {"form": outperform, "data": data, 'customer': my_data})
+    else:
+        return render(request, 'reviews.html', {"form": outperform, "data": data, "customer": my_data})
 
 
 # функция представления страницы туров

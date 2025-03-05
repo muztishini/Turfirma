@@ -3,5 +3,25 @@
 
 {% block content %}
 <h1>Отзывы</h1>
-<h4>Отзывов пока нет, но они обязательно появятся в скором времени!!!</h4>
+<div class="form-container" style="left: 635px;">
+<form method="post">
+  {% csrf_token %}
+  <table>
+    {{ form.as_table}}
+  </table>
+  <button style="width: 200px;" type="submit">Добавить отзыв</button>
+</form>
+</div>
+{% if data %}
+    {% for item in data %}
+        <div class="ab_us" style="margin-left: 670px;">
+            <p>{{ item.date_review }}</p>
+            <p>{{ item.user }}</p>
+            <p>{{ item.review }}</p>
+        </div>
+    {% endfor %}
+    <p style="height: 20px"></p>
+{% else %}
+    <h4>Отзывов пока нет, но они обязательно появятся в скором времени!!!</h4>
+{% endif %}
 {% endblock %}

@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from datetime import date
 
 
 # класс модели базы данных клиентов
@@ -138,3 +139,17 @@ class Payments(models.Model):
     class Meta:
         verbose_name = 'оплату'
         verbose_name_plural = "Оплаты"
+
+
+# класс модели базы данных отзывов
+class Reviews(models.Model):
+    user = models.CharField(max_length=50, default="Anonymous", verbose_name="Пользователь")
+    review = models.CharField(max_length=255, verbose_name="Отзыв")
+    date_review = models.DateField(verbose_name="Дата отзыва", default=date.today)
+
+    def __str__(self):
+        return str(self.id)
+
+    class Meta:
+        verbose_name = 'отзыв'
+        verbose_name_plural = "отзывы"

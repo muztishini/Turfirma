@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.utils.html import format_html
 from django.utils.safestring import mark_safe
-from .models import Customers, Tours, Transport, Excursions, Hotels, Bookings, Payments
+from .models import Customers, Tours, Transport, Excursions, Hotels, Bookings, Payments, Reviews
 
 
 # класс кастомизации админки клиентов
@@ -120,6 +120,17 @@ class ToursAdmin(admin.ModelAdmin):
     def hotel_links(self, obj):
         link = f"<a href='/admin/turfirmaapp/hotels/{obj.hotel.id}/change/'>{obj.hotel.hotel_name}</a>"
         return format_html(link)
+
+
+# класс кастомизации админки отзывов
+@admin.register(Reviews)
+class ReviewsAdmin(admin.ModelAdmin):
+    list_display = ['id', 'user', 'get_reviews', 'date_review']
+    list_per_page = 10
+
+    @admin.display(description="Отзыв")
+    def get_reviews(self, obj):
+        return obj.review[:50]
 
 
 admin.site.site_title = 'Админ-панель сайта турфирмы'
