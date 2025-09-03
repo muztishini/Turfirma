@@ -87,7 +87,7 @@ class PaymentAdmin(admin.ModelAdmin):
 @admin.register(Tours)
 class ToursAdmin(admin.ModelAdmin):
     list_display = ['tour_name', 'get_description', 'start_date', 'end_date', 'price', 'photo_tour', 'get_image',
-                    'excursions_list', 'transport_links', 'hotel_links']
+                    'excursions_list', 'transport_links', 'hotel_links', 'number_of_views']
     fields = (
         'tour_name', 'description', 'start_date', 'end_date', 'price', 'photo_tour', 'excursions', 'transport', 'hotel')
     readonly_fields = ('get_image',)

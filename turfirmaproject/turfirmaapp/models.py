@@ -84,6 +84,7 @@ class Tours(models.Model):
     excursions = models.ManyToManyField(Excursions, verbose_name="Название экскурсии", blank=True)
     transport = models.ForeignKey(Transport, on_delete=models.CASCADE, verbose_name="ID транспорта")
     hotel = models.ForeignKey(Hotels, on_delete=models.CASCADE, verbose_name="название отеля")
+    number_of_views = models.IntegerField(verbose_name="Количество просмотров", null=True)
 
     def get_absolute_url(self):
         return reverse('tour', kwargs={'tour_id': self.pk})

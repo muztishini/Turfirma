@@ -67,6 +67,8 @@ def show_tour(request, tour_id):
         data_transport = Transport.objects.get(id=data_tour.transport_id)
         data_hotel = Hotels.objects.get(id=data_tour.hotel_id)
         request.session['tour_id'] = tour_id
+        quantity = Tours.objects.get(id=tour_id).number_of_views
+        Tours.objects.filter(id=tour_id).update(number_of_views=quantity+1)
         return render(request, "show_tour.html",
                       {"data_tour": data_tour, "data_excursion": data_excursion, "data_transport": data_transport,
                        "data_hotel": data_hotel, 'customer': my_data})
