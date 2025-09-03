@@ -76,6 +76,7 @@ class Transport(models.Model):
 # класс модели базы данных туров
 class Tours(models.Model):
     tour_name = models.CharField(max_length=100, verbose_name="Название тура")
+    level = models.IntegerField(verbose_name="Уровень сложности", null=True)
     description = models.TextField(null=True, blank=True, verbose_name="Описание")
     start_date = models.DateField(verbose_name="Дата начала")
     end_date = models.DateField(verbose_name="Дата окончания")

@@ -6,6 +6,7 @@
 {% block content %}
 
 {% load static %}
+
 <style>
     body {
         background-image: url("{% static 'images/bg1.jpg' %}");
@@ -14,10 +15,15 @@
     }
 </style>
 
-
     <h2 class="title_tour">{{ data_tour.tour_name }}</h2>
     <p><img class="photo_tour" src="{{data_tour.photo_tour.url}}"></p>
 <div class="show_tour">
+    <p>Уровень сложности тура: {{ data_tour.level }}</p>
+    {% if data_tour.level == 1 %}<p>Рекомендуется с маленькими детьми и пожылым людям</p>{% endif %}
+    {% if data_tour.level == 2 %}<p>Можно с маленькими детьми и пожылым людям</p>{% endif %}
+    {% if data_tour.level == 3 %}<p>Средний уровень сложности</p>{% endif %}
+    {% if data_tour.level == 4 %}<p>Аккуратно с маленькими детьми и пожылым людям</p>{% endif %}
+    {% if data_tour.level == 5 %}<p>Не рекомендуется с маленькими детьми и пожылым людям</p>{% endif %}
     <p>{{ data_tour.description }}</p>
     <p>Экскурсии: <br>
         {% if data_excursion %}
