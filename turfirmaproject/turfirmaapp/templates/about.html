@@ -6,7 +6,15 @@
 {% block content %}
 
 <h1>О нас</h1>
-<img class="image_about" src="{% static 'images/about.jpg' %}" alt="about">
+<img class="image_about" src="{% static 'images/about.jpg' %}" alt="about" usemap="#image-map">
+  <map name="image-map">
+    <area shape="circle" coords="280,200,50" class="hotspot" title="Вася Пупкин. Менеджер">
+    <area shape="circle" coords="460,300,50" class="hotspot" title="Маша Пупкина. Менеджер">
+    <area shape="circle" coords="660,280,50" class="hotspot" title="Даша Пупкина. Менеджер">
+    <area shape="circle" coords="810,270,50" class="hotspot" title="Коля Пупкин. Менеджер">
+    <area shape="circle" coords="960,270,50" class="hotspot" title="Толя Пупкин. Менеджер">
+    <area shape="circle" coords="580,480,50" class="hotspot" title="Дима Пупкин. Начальник">
+  </map>
 <p class="ab_us">
     <span>SevenTrip</span>
     — это не просто о путешествиях, это о людях, которые их создают. <br>
