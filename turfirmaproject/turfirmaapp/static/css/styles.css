@@ -292,3 +292,33 @@ button:hover {
   left: 42%;
   font-size: 18px;
 }
+
+.buy_tour {
+  position: relative; 
+  background-color: red;
+  left: 40px;
+  top: 30px;
+  animation: blink 1.5s infinite;
+  border: none; 
+  cursor: pointer; 
+  padding: 10px 20px; 
+  font-size: 16px; 
+  border-radius: 5px; 
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+    background-color: #cc0000; 
+  }
+}
+
+.links_btn_buy {
+  color: black;
+  outline: none;
+  text-decoration: none;
+  padding: 2px 1px 0;
+}

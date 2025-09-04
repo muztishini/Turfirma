@@ -16,8 +16,9 @@
           <a class="links" href="{% url 'register' %}">Регистрация</a> | <a class="links" href="{% url 'login' %}">Войти</a>
         {% endif %}
       </nav>
+      <button class="buy_tour"><a class="links_btn_buy" href="{% url 'tours' %}">Купить тур</a></button>
     </header>
-
+    
     <div id="mySidebar" class="sidebar">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <img class="logo" src="{% static 'images/logo.png' %}" alt="Logo" >
