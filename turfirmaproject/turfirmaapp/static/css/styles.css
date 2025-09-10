@@ -299,16 +299,18 @@ button:hover {
 }
 
 .buy_tour {
-  position: relative; 
+  position: fixed;
   background-color: red;
-  left: 40px;
-  top: 30px;
+  right: 20px;
+  top: 60px;
   animation: blink 1.5s infinite;
-  border: none; 
-  cursor: pointer; 
-  padding: 10px 20px; 
-  font-size: 16px; 
-  border-radius: 5px; 
+  border: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  color: white;
+  z-index: 1000;
 }
 
 @keyframes blink {
