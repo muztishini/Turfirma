@@ -4,11 +4,9 @@
 {% block content %}
 <h1>Отзывы</h1>
 <div class="form-container" style="left: 635px;">
-<form method="post">
+<form method="post" enctype="multipart/form-data">
   {% csrf_token %}
-  <table>
-    {{ form.as_table}}
-  </table>
+    {{ form.as_p}}
   <button style="width: 200px;" type="submit">Добавить отзыв</button>
 </form>
 </div>
@@ -17,6 +15,7 @@
         <div class="ab_us" style="margin-left: 670px;">
             <p>{{ item.date_review }}</p>
             <p>{{ item.user }}</p>
+            <p><img class="photo_review" src="{{item.photo.url}}"></p>
             <p>{{ item.review }}</p>
         </div>
     {% endfor %}

@@ -134,6 +134,11 @@ footer {
     height: 10%;
 }
 
+.photo_review {
+    width: 50px;
+    height: 50px;
+}
+
 .image_about {
     display: block;
     margin: 0 auto;

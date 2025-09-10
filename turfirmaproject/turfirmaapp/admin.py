@@ -125,7 +125,7 @@ class ToursAdmin(admin.ModelAdmin):
 # класс кастомизации админки отзывов
 @admin.register(Reviews)
 class ReviewsAdmin(admin.ModelAdmin):
-    list_display = ['id', 'user', 'get_reviews', 'date_review']
+    list_display = ['id', 'user', 'photo', 'get_reviews', 'date_review']
     list_per_page = 10
 
     @admin.display(description="Отзыв")

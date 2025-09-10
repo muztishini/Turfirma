@@ -15,6 +15,29 @@ class LoginForm(forms.Form):
 
 
 # класс формы добавления отзыва
-class ReviewForm(forms.Form):
-    user = forms.CharField(label="Имя", max_length=50, required=False)
-    review = forms.CharField(widget=forms.Textarea(attrs={'rows': 5, 'cols': 66, 'style': 'border-radius: 5px; padding: 10px; border: 1px solid #ccc;'}), label="Отзыв", max_length=255)
+class ReviewForm(forms.ModelForm):
+    class Meta:
+        model = Reviews
+        fields = ['user', 'photo', 'review']
+        widgets = {
+            'user': forms.TextInput(attrs={
+                'placeholder': 'Введите имя или оставьте пустым для Anonymous',
+                'class': 'form-control'
+            }),
+            'review': forms.Textarea(attrs={
+                'placeholder': 'Ваш отзыв...',
+                'rows': 4,
+                'class': 'form-control'
+            }),
+        }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['user'].initial = 'Anonymous'
+        self.fields['user'].required = False
+
+    def clean_user(self):
+        user = self.cleaned_data.get('user', '').strip()
+        if not user:
+            return 'Anonymous'
+        return user

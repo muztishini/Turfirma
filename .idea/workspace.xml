@@ -6,7 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="ca5f36d3-b7a3-45f9-8d90-dd989bd6f08f" name="Changes" comment="add level tours">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/~$исание.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/turfirmaproject/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/turfirmaproject/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/static/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/static/css/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/templates/reviews.html" beforeDir="false" afterPath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/templates/reviews.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,18 +53,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Python/Django/Turfirma",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Python/Django/Turfirma&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Python\Django\Turfirma\turfirmaproject\turfirmaapp\static" />

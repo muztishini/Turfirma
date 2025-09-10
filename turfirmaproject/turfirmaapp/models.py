@@ -145,7 +145,8 @@ class Payments(models.Model):
 
 # класс модели базы данных отзывов
 class Reviews(models.Model):
-    user = models.CharField(max_length=50, default="Anonymous", verbose_name="Пользователь")
+    user = models.CharField(max_length=50, blank=True, default="Anonymous", verbose_name="Пользователь")
+    photo = models.ImageField(upload_to="photo/", blank=True, null=True, default="photo/default_avatar.png", verbose_name="Фото")
     review = models.CharField(max_length=255, verbose_name="Отзыв")
     date_review = models.DateField(verbose_name="Дата отзыва", default=date.today)
 
