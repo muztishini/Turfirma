@@ -1,7 +1,3 @@
-from PIL.Image import Image
-from PIL import Image
-import os
-import cv2
 from django.shortcuts import redirect, render
 from .forms import CustomersForm, LoginForm, ReviewForm
 from .models import Hotels, Tours, Excursions, Transport, Customers, Bookings, Reviews
