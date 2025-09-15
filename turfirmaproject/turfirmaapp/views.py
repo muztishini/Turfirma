@@ -1,6 +1,6 @@
-from django.shortcuts import redirect, render
-from .forms import CustomersForm, LoginForm, ReviewForm
-from .models import Hotels, Tours, Excursions, Transport, Customers, Bookings, Reviews
+from django.shortcuts import redirect, render, get_object_or_404
+from .forms import CustomersForm, LoginForm, ReviewForm, ApplicationForm
+from .models import Hotels, Tours, Excursions, Transport, Customers, Bookings, Reviews, Application
 from datetime import date
 
 
@@ -61,7 +61,7 @@ def show_tour(request, tour_id):
         data_hotel = Hotels.objects.get(id=data_tour.hotel_id)
         request.session['tour_id'] = tour_id
         quantity = Tours.objects.get(id=tour_id).number_of_views
-        Tours.objects.filter(id=tour_id).update(number_of_views=quantity+1)
+        Tours.objects.filter(id=tour_id).update(number_of_views=quantity + 1)
         return render(request, "show_tour.html",
                       {"data_tour": data_tour, "data_excursion": data_excursion, "data_transport": data_transport,
                        "data_hotel": data_hotel, 'customer': my_data})
@@ -86,9 +86,23 @@ def booking(request):
                 status="забронировано"
             )
             return render(request, 'booking.html', {'customer': my_data, 'tour_name': tour_name})
+        else:
+            form = ApplicationForm()
+            if request.method == "POST":
+                name = request.POST.get("name")
+                phone = request.POST.get("phone")
+                print(tour_id, tour_name)
+                tour_obj = get_object_or_404(Tours, id=tour_id)
+                Application.objects.create(
+                    name=name,
+                    phone=phone,
+                    tour=tour_obj,
+                    application_date=date.today()
+                )
+                return render(request, 'application.html', {'customer': my_data})
     else:
-        return render(request, 'booking.html', {'customer': my_data, 'tour_name': tour_name, 'flag': 1})
-    return render(request, 'booking.html', {'customer': my_data})
+        return render(request, 'booking.html', {'customer': my_data, 'tour_name': tour_name, 'flag': 1, "form": form})
+    return render(request, 'booking.html', {'customer': my_data, "form": form})
 
 
 # функция представления страницы экскурсий

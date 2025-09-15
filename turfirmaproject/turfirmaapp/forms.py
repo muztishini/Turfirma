@@ -1,5 +1,5 @@
 from django import forms
-from .models import Customers, Reviews
+from .models import Customers, Reviews, Application
 
 
 # класс формы регистрации клиента
@@ -41,3 +41,10 @@ class ReviewForm(forms.ModelForm):
         if not user:
             return 'Anonymous'
         return user
+
+
+# класс формы оставления заявки
+class ApplicationForm(forms.ModelForm):
+    class Meta:
+        model = Application
+        fields = "name", "phone"

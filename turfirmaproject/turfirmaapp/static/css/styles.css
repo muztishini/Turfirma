@@ -257,6 +257,7 @@ span {
   width: 700px;
   position: relative;
   left: 700px;
+  top: 50px;
   color: orange;  
 }
 
@@ -293,8 +294,7 @@ button:hover {
 .regist_error {
   color: red;
   position: relative;
-  top: 20px;
-  left: 42%;
+  top: 40px;
   font-size: 18px;
 }
 

@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.utils.html import format_html
 from django.utils.safestring import mark_safe
-from .models import Customers, Tours, Transport, Excursions, Hotels, Bookings, Payments, Reviews
+from .models import Customers, Tours, Transport, Excursions, Hotels, Bookings, Payments, Reviews, Application
 
 
 # класс кастомизации админки клиентов
@@ -86,10 +86,12 @@ class PaymentAdmin(admin.ModelAdmin):
 # класс кастомизации админки туров
 @admin.register(Tours)
 class ToursAdmin(admin.ModelAdmin):
-    list_display = ['tour_name', 'level', 'get_description', 'start_date', 'end_date', 'price', 'photo_tour', 'get_image',
+    list_display = ['tour_name', 'level', 'get_description', 'start_date', 'end_date', 'price', 'photo_tour',
+                    'get_image',
                     'excursions_list', 'transport_links', 'hotel_links', 'number_of_views']
     fields = (
-        'tour_name', 'level', 'description', 'start_date', 'end_date', 'price', 'photo_tour', 'excursions', 'transport', 'hotel')
+        'tour_name', 'level', 'description', 'start_date', 'end_date', 'price', 'photo_tour', 'excursions', 'transport',
+        'hotel')
     readonly_fields = ('get_image',)
     list_per_page = 10
 
@@ -131,6 +133,13 @@ class ReviewsAdmin(admin.ModelAdmin):
     @admin.display(description="Отзыв")
     def get_reviews(self, obj):
         return obj.review[:50]
+
+
+# класс админки заявок
+@admin.register(Application)
+class ApplicationAdmin(admin.ModelAdmin):
+    list_display = ['id', 'name', 'phone', 'tour', 'application_date']
+    list_per_page = 10
 
 
 admin.site.site_title = 'Админ-панель сайта турфирмы'

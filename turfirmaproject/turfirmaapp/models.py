@@ -120,6 +120,21 @@ class Bookings(models.Model):
         verbose_name_plural = "Бронирования"
 
 
+# класс модели базы данных заявки
+class Application(models.Model):
+    name = models.CharField(max_length=50, verbose_name="Имя")
+    phone = models.CharField(max_length=20, null=True, blank=True, unique=True, verbose_name="Телефон")
+    tour = models.ForeignKey(Tours, on_delete=models.CASCADE, verbose_name="Название тура")
+    application_date = models.DateField(verbose_name="Дата заявки")
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'заявку'
+        verbose_name_plural = "Заявки"
+
+
 # класс модели базы данных оплаты
 class Payments(models.Model):
     choosing_payment = [
@@ -146,7 +161,8 @@ class Payments(models.Model):
 # класс модели базы данных отзывов
 class Reviews(models.Model):
     user = models.CharField(max_length=50, blank=True, default="Anonymous", verbose_name="Пользователь")
-    photo = models.ImageField(upload_to="photo/", blank=True, null=True, default="photo/default_avatar.png", verbose_name="Фото")
+    photo = models.ImageField(upload_to="photo/", blank=True, null=True, default="photo/default_avatar.png",
+                              verbose_name="Фото")
     review = models.CharField(max_length=255, verbose_name="Отзыв")
     date_review = models.DateField(verbose_name="Дата отзыва", default=date.today)
 
@@ -155,4 +171,4 @@ class Reviews(models.Model):
 
     class Meta:
         verbose_name = 'отзыв'
-        verbose_name_plural = "отзывы"
+        verbose_name_plural = "Отзывы"

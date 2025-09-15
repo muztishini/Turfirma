@@ -14,5 +14,18 @@
     {% endif %}
 {% else %}
     <h4>Чтобы забронировать тур, <a class="links" href="{% url 'login' %}">войдите</a> или <a class="links" href="{% url 'register' %}">зарегистрируйтесь!</a></h4>
+    <h4>При регистрации получите приветственный бонус. Скидка 10% на первое бронирование!!!</h4>
+    <h4>Если хотите купить тур без регистрации, заполните форму ниже и оставьте заявку. Мы обязательно с вами свяжемся!</h4>
+    {% if form %}
+        <div class="form-container">  
+            <form method="post">
+            {% csrf_token %}
+            <table>
+                {{ form.as_table }}
+            </table>
+            <button style="width: 200px;" type="submit">Оставить заявку</button>
+            </form>
+        </div>
+    {% endif %}
 {% endif %}
 {% endblock %}
