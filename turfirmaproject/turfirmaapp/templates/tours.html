@@ -11,6 +11,11 @@
         background-repeat: no-repeat;
     }
 </style>
+<form method="post" class="calendar">
+    {% csrf_token %}
+    {{ calendarform.as_table }}
+    <button type="submit">Отправить</button>
+</form> 
 
 <h1>Наши туры</h1>
 {% if data %}
@@ -21,7 +26,7 @@
     </div>
     {% endfor %}
 {% else %}
-    <h2>Туры в разработке</h2>
+    <h2 style="left: 800px;">Нет туров на выбранные даты</h2>
 {% endif %}
 
 {% endblock %}

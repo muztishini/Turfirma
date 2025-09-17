@@ -4,14 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ca5f36d3-b7a3-45f9-8d90-dd989bd6f08f" name="Changes" comment="small changes">
+    <list default="true" id="ca5f36d3-b7a3-45f9-8d90-dd989bd6f08f" name="Changes" comment="add applications without registration">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/turfirmaproject/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/turfirmaproject/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/static/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/static/css/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/templates/booking.html" beforeDir="false" afterPath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/templates/booking.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/templates/reviews.html" beforeDir="false" afterPath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/templates/reviews.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -22,8 +24,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -53,22 +55,52 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Python/Django/Turfirma&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Python.1.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Python/Django/Turfirma",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Python\Django\Turfirma\turfirmaproject\turfirmaapp\static" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Turfirma" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/turfirmaproject/turfirmaapp" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/turfirmaproject/turfirmaapp/1.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.1" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -262,7 +294,15 @@
       <option name="project" value="LOCAL" />
       <updated>1757571548007</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="add applications without registration">
+      <option name="closed" value="true" />
+      <created>1757924698150</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1757924698150</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -277,6 +317,7 @@
     <MESSAGE value="add level tours" />
     <MESSAGE value="add photo review" />
     <MESSAGE value="small changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="small changes" />
+    <MESSAGE value="add applications without registration" />
+    <option name="LAST_COMMIT_MESSAGE" value="add applications without registration" />
   </component>
 </project>

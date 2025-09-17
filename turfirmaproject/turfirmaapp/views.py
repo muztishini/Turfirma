@@ -1,7 +1,8 @@
 from django.shortcuts import redirect, render, get_object_or_404
-from .forms import CustomersForm, LoginForm, ReviewForm, ApplicationForm
+from .forms import CustomersForm, LoginForm, ReviewForm, ApplicationForm, DateForm
 from .models import Hotels, Tours, Excursions, Transport, Customers, Bookings, Reviews, Application
 from datetime import date
+from datetime import datetime, timedelta
 
 
 # функция обработки сессии
@@ -14,7 +15,20 @@ def set_session_data(request, customer_name, customer_id):
 # функция представления домашней страницы
 def home(request):
     my_data = request.session.get('customer', None)
-    return render(request, 'home.html', {'customer': my_data})
+    calendarform = DateForm(request.POST)
+    if request.method == 'POST':
+        if calendarform.is_valid():
+            selected_date = calendarform.cleaned_data['date']
+            selected_tours = Tours.objects.all().filter(start_date=selected_date)
+            return render(request, "tours.html", {"data": selected_tours, 'customer': my_data, 'calendarform': calendarform})
+    else:
+        calendarform = DateForm()
+        today = datetime.now().date()
+        next_friday = today + timedelta(days=(4 - today.weekday()) % 7 or 7)
+        next_saturday = today + timedelta(days=(5 - today.weekday()) % 7 or 7)
+        weekend_tours = Tours.objects.all().filter(
+            start_date=next_friday) | Tours.objects.all().filter(start_date=next_saturday)
+        return render(request, 'home.html', {'customer': my_data, 'data': weekend_tours, 'calendarform': calendarform})
 
 
 # функция представления страницы "о нас"
@@ -46,9 +60,15 @@ def reviews(request):
 
 # функция представления страницы туров
 def tours(request):
-    data = Tours.objects.all()
     my_data = request.session.get('customer', None)
-    return render(request, "tours.html", {"data": data, 'customer': my_data})
+    data = Tours.objects.all()   
+    calendarform = DateForm(request.POST)
+    if request.method == 'POST':
+        if calendarform.is_valid():
+            selected_date = calendarform.cleaned_data['date']
+            selected_tours = Tours.objects.all().filter(start_date=selected_date)
+            return render(request, "tours.html", {"data": selected_tours, 'customer': my_data, 'calendarform': calendarform})   
+    return render(request, "tours.html", {"data": data, 'customer': my_data, 'calendarform': calendarform})
 
 
 # функция представления страницы выбранного тура

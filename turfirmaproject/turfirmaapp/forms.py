@@ -1,4 +1,5 @@
 from django import forms
+from django.forms.widgets import NumberInput
 from .models import Customers, Reviews, Application
 
 
@@ -48,3 +49,7 @@ class ApplicationForm(forms.ModelForm):
     class Meta:
         model = Application
         fields = "name", "phone"
+
+
+class DateForm(forms.Form):
+    date = forms.DateField(label="Введите дату", widget=NumberInput(attrs={'type': 'date'}))
