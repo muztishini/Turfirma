@@ -309,7 +309,7 @@ button:hover {
 
 .buy_tour {
   position: fixed;
-  background-color: red;
+  background-color: yellow;
   right: 20px;
   top: 60px;
   animation: blink 1.5s infinite;
@@ -328,7 +328,7 @@ button:hover {
   }
   50% {
     opacity: 0.7;
-    background-color: #cc0000; 
+    background-color: #eeeb3f; 
   }
 }
 
@@ -351,4 +351,8 @@ button:hover {
 
 .errorlist {
     display: none;
+}
+
+.form-group {
+  color: rgb(217, 235, 140);
 }

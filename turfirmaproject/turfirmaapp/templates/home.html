@@ -5,11 +5,14 @@
 <h1 class="promo_name">SevenTrip</h1>
 <h2 class="promo_sub">ПРОКАЧАЕМ ТВОИ ЭМОЦИИ НА МАКСИМУМ</h2>
 
-<form method="post" class="calendar">
-    {% csrf_token %}
-    {{ calendarform.as_table }}
-    <button type="submit">Отправить</button>
-</form>    
+<div class="form-group">
+    <form method="post" class="calendar">        
+            {% csrf_token %}
+            {{ calendarform.as_table }}
+        <button type="submit">Отправить</button>
+    </form>
+</div> 
+
 <div class="main_tours">
     {% if data %}
         <h3 style="top: 300px; left: 830px;">Туры на ближайшие выходные</h3>
@@ -21,7 +24,7 @@
             </div>
             {% endfor %}
     {% else %}
-        <h2>Нет туров в ближайшие выходные</h2>
+        <h2 style="top: 300px; left: 750px;">Нет туров в ближайшие выходные</h2>
     {% endif %}
 </div>
 <p style="margin-bottom: 370px;"></p>

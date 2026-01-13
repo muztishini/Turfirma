@@ -52,4 +52,5 @@ class ApplicationForm(forms.ModelForm):
 
 
 class DateForm(forms.Form):
-    date = forms.DateField(label="Введите дату", widget=NumberInput(attrs={'type': 'date'}))
+    date = forms.DateField(label="Выберете дату тура",
+                           widget=NumberInput(attrs={'type': 'date'}))

@@ -6,16 +6,19 @@
 {% load static %}
 <style>
     body {
-        background-image: url("{% static 'images/bg1.jpg' %}");
+        background-image: url("{% static 'images/mutnoesteklo.jpg' %}");
         background-size: cover;
         background-repeat: no-repeat;
     }
 </style>
-<form method="post" class="calendar">
-    {% csrf_token %}
-    {{ calendarform.as_table }}
-    <button type="submit">Отправить</button>
-</form> 
+
+<div class="form-group">
+    <form method="post" class="calendar">        
+            {% csrf_token %}
+            {{ calendarform.as_table }}
+        <button type="submit">Отправить</button>
+    </form>
+</div> 
 
 <h1>Наши туры</h1>
 {% if data %}
