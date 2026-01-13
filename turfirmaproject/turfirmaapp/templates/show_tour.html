@@ -18,6 +18,7 @@
     <h2 class="title_tour">{{ data_tour.tour_name }}</h2>
     <p><img class="photo_tour" src="{{data_tour.photo_tour.url}}"></p>
 <div class="show_tour">
+    <button class="button_booking" type="button"><a class="links_btn" href="{% url 'booking' %}">Забронировать</a></button>
     <p>Уровень сложности тура: {{ data_tour.level }}</p>
     {% if data_tour.level == 1 %}<p>Рекомендуется с маленькими детьми и пожылым людям</p>{% endif %}
     {% if data_tour.level == 2 %}<p>Можно с маленькими детьми и пожылым людям</p>{% endif %}
@@ -40,7 +41,7 @@
             <p>Время прибытия: {{data_transport.arrival_time}}</p>
     </p>   
     <p>Цена: {{ data_tour.price }}</p>
-    <button class="button_booking" type="button"><a class="links_btn" href="{% url 'booking' %}">Забронировать</a></button>
+    
 </div>
 {% endblock %}
 {% else %}

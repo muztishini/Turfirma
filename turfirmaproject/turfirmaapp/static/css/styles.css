@@ -37,7 +37,7 @@ h4 {
   position: relative;
   top: 60px;
   left: 100px;
-  font-size: 26px;
+  font-size: 20px;
   text-align: center;
 }
 
@@ -248,7 +248,7 @@ span {
   height: 40px;
   width: 150px;
   font-size: 16px;
-  margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 .links_btn {

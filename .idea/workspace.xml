@@ -6,6 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="ca5f36d3-b7a3-45f9-8d90-dd989bd6f08f" name="Changes" comment="add applications without registration">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/turfirmaproject/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/turfirmaproject/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/static/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/static/css/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/templates/reviews.html" beforeDir="false" afterPath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/templates/reviews.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/templates/show_tour.html" beforeDir="false" afterPath="$PROJECT_DIR$/turfirmaproject/turfirmaapp/templates/show_tour.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
