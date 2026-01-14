@@ -64,11 +64,11 @@ def func(rdata):
 def reviews(request):
     my_data = request.session.get('customer', None)
     outperform = ReviewForm(request.POST, request.FILES)
-    rdata = Reviews.objects.all().order_by('-id')
-    data = func(rdata)
+    rdata = Reviews.objects.all().order_by('-id')    
     if request.method == "POST":
         if outperform.is_valid():
             outperform.save()
+            data = func(rdata)
             return render(request, 'reviews.html', {'form': outperform, 'data': data, 'customer': my_data})
         rdata = Reviews.objects.all().order_by('-id')
         data = func(rdata)
