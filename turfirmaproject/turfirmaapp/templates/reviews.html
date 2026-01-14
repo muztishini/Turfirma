@@ -2,6 +2,7 @@
 {% block title %}Отзывы{% endblock title %}
 
 {% block content %}
+
 <h1>Отзывы</h1>
 <div class="form-container" style="left: 635px; top: -40px;">
 <form method="post" enctype="multipart/form-data">
@@ -9,18 +10,43 @@
     {{ form.as_table}}
   <button style="width: 200px; margin-top: 10px;" type="submit">Добавить отзыв</button>
 </form>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+$(document).ready(function() {
+    // Переключение видимости блоков при выборе типа отзыва
+    $('input[name="review_type"]').change(function(){
+        if ($(this).val() === 'tour') {
+            $('#tour-block').show();
+            $('#excursion-block').hide();
+        } else if ($(this).val() === 'excursion') {
+            $('#excursion-block').show();
+            $('#tour-block').hide();
+        }
+    });
+});
+</script>
 </div>
+
 {% if data %}
     {% for item in data %}
         <div class="ab_us" style="margin-left: 670px;">
-            <p>{{ item.date_review }}</p>
-            <p>{{ item.user }}</p>
-            <p><img class="photo_review" src="{{item.photo.url}}"></p>
-            <p>{{ item.review }}</p>
+            <p>{{ item.1.date_review }}</p>
+            <p>{{ item.1.user }}</p>
+            <p><img class="photo_review" src="{{item.1.photo.url}}"></p>
+            <p>{{ item.0.0 }}</p>
+            <p>{{ item.0.1 }}</p>
+            {% if item.1.star == 1 %}<p>*</p>
+            {% elif item.1.star == 2 %}<p>**</p>
+            {% elif item.1.star == 3 %}<p>***</p>
+            {% elif item.1.star == 4 %}<p>****</p>
+            {% elif item.1.star == 5 %}<p>*****</p>
+            {% endif %}
+            <p>{{ item.1.review }}</p> 
         </div>
     {% endfor %}
     <p style="height: 20px"></p>
 {% else %}
     <h4>Отзывов пока нет, но они обязательно появятся в скором времени!!!</h4>
 {% endif %}
+
 {% endblock %}

@@ -17,9 +17,14 @@ class LoginForm(forms.Form):
 
 # класс формы добавления отзыва
 class ReviewForm(forms.ModelForm):
+    review_type = forms.ChoiceField(
+        choices=(('tour', 'Отзыв о туре'), ('excursion', 'Отзыв об экскурсии')),
+        widget=forms.RadioSelect(),
+        label='Выбор отзыва'
+    )
     class Meta:
         model = Reviews
-        fields = ['user', 'photo', 'review']
+        fields = ['user', 'photo', 'review_type', 'tour', 'excursion', 'star', 'review']
         widgets = {
             'user': forms.TextInput(attrs={
                 'placeholder': 'Введите имя или оставьте пустым для Anonymous',
@@ -30,6 +35,20 @@ class ReviewForm(forms.ModelForm):
                 'rows': 4,
                 'class': 'form-control'
             }),
+            'star': forms.NumberInput(attrs={
+                'placeholder': 'Ваша оценка (от 1 до 5)',
+                'min': 1,
+                'max':5,
+                'class': 'form-control'
+            }),
+            'tour': forms.Select(attrs={
+                'id': 'tour-block',
+                'class': 'form-control'
+            }),
+            'excursion': forms.Select(attrs={
+                'id': 'excursion-block',
+                'class': 'form-control'
+            })
         }
 
     def __init__(self, *args, **kwargs):

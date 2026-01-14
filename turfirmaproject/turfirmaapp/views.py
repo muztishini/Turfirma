@@ -43,18 +43,38 @@ def contact(request):
     return render(request, 'contact.html', {'customer': my_data})
 
 
+def func(rdata):
+    review_lst = []
+    for item in rdata:
+        ex_id = item.excursion_id
+        tour_id = item.tour_id
+        if tour_id == None:
+            review_type = "Экскурсия"    
+            review_name = Excursions.objects.get(id=ex_id).excursion_name
+        if ex_id == None:
+            review_type = "Тур"    
+            review_name = Tours.objects.get(id=tour_id).tour_name
+        review_lst.append((review_type, review_name))    
+
+    total_lst = list(zip(review_lst, rdata))
+    return total_lst
+
+
 # функция представления страницы отзывов
 def reviews(request):
     my_data = request.session.get('customer', None)
     outperform = ReviewForm(request.POST, request.FILES)
-    data = Reviews.objects.all().order_by('-id')
+    rdata = Reviews.objects.all().order_by('-id')
+    data = func(rdata)
     if request.method == "POST":
         if outperform.is_valid():
             outperform.save()
-            return render(request, 'reviews.html', {'form': outperform, "data": data, 'customer': my_data})
-        data = Reviews.objects.all().order_by('-id')
+            return render(request, 'reviews.html', {'form': outperform, 'data': data, 'customer': my_data})
+        rdata = Reviews.objects.all().order_by('-id')
+        data = func(rdata)
         return render(request, 'reviews.html', {"form": outperform, "data": data, 'customer': my_data})
     else:
+        data = func(rdata)
         return render(request, 'reviews.html', {"form": outperform, "data": data, "customer": my_data})
 
 

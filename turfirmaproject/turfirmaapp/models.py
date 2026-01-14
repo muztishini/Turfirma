@@ -1,3 +1,4 @@
+from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 from django.urls import reverse
 from datetime import date
@@ -161,6 +162,12 @@ class Payments(models.Model):
 # класс модели базы данных отзывов
 class Reviews(models.Model):
     user = models.CharField(max_length=50, blank=True, default="Anonymous", verbose_name="Пользователь")
+    tour = models.ForeignKey(Tours, on_delete=models.CASCADE, verbose_name="Название тура", null=True, default=None, blank=True)
+    excursion = models.ForeignKey(Excursions, on_delete=models.CASCADE, verbose_name="Название экскурсии", null=True, default=None, blank=True)
+    star = models.IntegerField(verbose_name="Оценка",
+                               validators=[MinValueValidator(1),
+                                           MaxValueValidator(5)],
+                               null=True)
     photo = models.ImageField(upload_to="photo/", blank=True, null=True, default="photo/default_avatar.png",
                               verbose_name="Фото")
     review = models.CharField(max_length=255, verbose_name="Отзыв")
