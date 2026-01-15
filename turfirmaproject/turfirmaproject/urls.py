@@ -21,8 +21,8 @@ from django.conf import settings
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('turfirmaapp.urls')),
+    path('admin/', admin.site.urls),    
+    path('', include('turfirmaapp.urls')),    
 ]
 
 # включаем возможность обработки картинок

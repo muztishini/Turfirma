@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.urls import reverse
 from django.utils.html import format_html
 from django.utils.safestring import mark_safe
 from .models import Customers, Tours, Transport, Excursions, Hotels, Bookings, Payments, Reviews, Application
@@ -58,14 +59,14 @@ class BookingAdmin(admin.ModelAdmin):
     @admin.display(description='Клиент')
     def customer_link(self, obj):
         link = f"<a href='/admin/turfirmaapp/customers/{obj.customer.id}/change/'>{obj.customer.last_name} {obj.customer.first_name}</a>"
-        return format_html(link)
+        return format_html(link, "", "")
 
     customer_link.admin_order_field = 'customer__last_name'
 
     @admin.display(description='Тур')
     def tour_link(self, obj):
         link = f"<a href='/admin/turfirmaapp/tours/{obj.tour.id}/change/'>{obj.tour.tour_name}</a>"
-        return format_html(link)
+        return format_html(link, "", "")
 
     tour_link.admin_order_field = 'tour__tour_name'
 
@@ -80,7 +81,7 @@ class PaymentAdmin(admin.ModelAdmin):
     @admin.display(description='Id бронирования')
     def booking_link(self, obj):
         link = f"<a href='/admin/turfirmaapp/bookings/{obj.booking.id}/change/'>{obj.booking.id}</a>"
-        return format_html(link)
+        return format_html(link, "", "")
 
 
 # класс кастомизации админки туров
@@ -111,17 +112,17 @@ class ToursAdmin(admin.ModelAdmin):
         for excur in obj.excursions.all():
             link = f"<a href='/admin/turfirmaapp/excursions/{excur.id}/change/'>{excur.excursion_name}</a>"
             excur_links.append(link)
-        return format_html(", ".join(excur_links)) if excur_links else "Нет экскурсий"
+        return format_html(", ".join(excur_links), '', '') if excur_links else "Нет экскурсий"
 
     @admin.display(description='ID транспорта')
     def transport_links(self, obj):
         link = f"<a href='/admin/turfirmaapp/transport/{obj.transport.id}/change/'>{obj.transport.id}</a>"
-        return format_html(link)
+        return format_html(link, "", "")
 
     @admin.display(description='Отель')
     def hotel_links(self, obj):
         link = f"<a href='/admin/turfirmaapp/hotels/{obj.hotel.id}/change/'>{obj.hotel.hotel_name}</a>"
-        return format_html(link)
+        return format_html(link, "", "")
 
 
 # класс кастомизации админки отзывов
